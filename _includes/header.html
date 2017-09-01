@@ -1,0 +1,130 @@
+<header id="header">
+
+  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+    <span class="sr-only">Toggle navigation</span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+
+  <a href="https://mobile.synxis.com/20986" class="button mobile-booknow">Book Now</a>
+  <a href="/members-only/" class="button membersonly mobile-only">Members Only</a>
+
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div id="navbar" class="navbar-collapse collapse">
+    <ul class="nav navbar-nav navbar-right">
+
+      {% for items in obj.mainmenu %}
+        {% if items.dropdown == "yes" %}
+          <li class="parent">
+            <a href="{{ items.url }}"{% if items.parent == page.parent %} class="active"{% endif %}>{{ items.name }}</a>
+            <ul>
+              {% for subitems in items.drop-links %}
+                {% if subitems.dropdown == "yes" %}
+                  <li class="parent">
+                    <a href="{{ subitems.url }}">{{ subitems.name }}</a>
+                    <ul>
+                      {% for subitem in subitems.drop-links %}
+                      <li><a href="{{ subitem.url }}">{{ subitem.name }}</a></li>
+                      {% endfor %}
+                    </ul>
+                  </li>
+                  {% else %}
+                  <li><a href="{{ subitems.url }}">{{ subitems.name }}</a></li>
+                {% endif %}
+              {% endfor %}
+            </ul>
+          </li>
+        {% else %}
+          <li><a href="{{ items.url }}"{% if items.parent == page.parent %} class="active"{% endif %}>{{ items.name }}</a></li>
+        {% endif %}
+      {% endfor %}
+      <li><a href="/offers/">Offers</a></li>
+      <li><a href="/directions/">Directions</a></li>
+      <li><a href="/contact/">Contact Us</a></li>
+      <li><a href="https://gc.synxis.com/rez.aspx?Hotel=20986&Chain=16087&template=GCF&shell=GCF4&start=searchres&_ga=1.113460295.1105710035.1483511152" target="_blank">Modify Reservation</a></li>
+    </ul>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="wrapper">
+
+          <a id="logo" class="fn org" href="/" title="The Evelyn">
+            <img src="/images/logo.png" alt="The Evelyn">
+          </a>
+          <a href="/members-only" class="button membersonly">Members Only</a>
+
+          <div class="topmenuwrapper">
+
+            <nav id="languages">
+              <a id="icon-lang" href="#" class="active">EN</a>
+              <ul>
+                <li><a href="/unser-hotel">Deutsch</a></li>
+                <li><a href="/inicio" class="">Español</a></li>
+                <li><a href="/notre-htel" class="">Français</a></li>
+                <li><a href="/nossohotel" class="">Português</a></li>
+                <li><a href="/nostrohotel" class="">Italiano</a></li>
+              </ul>
+            </nav>
+
+            <ul class="socials">
+              <li><a class="google" href="https://plus.google.com/u/0/108213383925552644339" target="_blank" rel="nofollow" onclick="var s=s_gi(s_account); s.linkTrackVars='events,products'; s.linkTrackEvents='event7'; s.events='event7'; s.products=';The Evelyn'; (s.tl(this,'e','The Evelyn - Google Plus - Website Referral') );">Google Plus</a>                </li>
+              <li><a class="facebook" href="https://www.facebook.com/TheEvelynNYC" target="_blank" rel="nofollow" onclick="var s=s_gi(s_account); s.linkTrackVars='events,products'; s.linkTrackEvents='event7'; s.events='event7'; s.products=';The Evelyn'; (s.tl(this,'e','The Evelyn - Facebook - Website Referral') );">Facebook</a>                </li>
+              <li><a class="twitter" href="https://twitter.com/TheEvelynNYC" target="_blank" rel="nofollow" onclick="var s=s_gi(s_account); s.linkTrackVars='events,products'; s.linkTrackEvents='event7'; s.events='event7'; s.products=';The Evelyn'; (s.tl(this,'e','The Evelyn - Twitter - Website Referral') );">Twitter</a>                </li>
+              <li><a class="instagram" href="http://instagram.com/TheEvelynNYC" target="_blank" rel="nofollow" onclick="var s=s_gi(s_account); s.linkTrackVars='events,products'; s.linkTrackEvents='event7'; s.events='event7'; s.products=';The Evelyn'; (s.tl(this,'e','The Evelyn - Instagram - Website Referral') );">Instagram</a>                </li>
+            </ul>
+
+            <nav id="top-menu">
+              <ul>
+                {% for toplinks in obj.top-links %}
+                  {% if toplinks.parent == page.parent %}
+                    <li><a href="{{ toplinks.url }}" class="active">{{ toplinks.name }}</a></li>
+                  {% else %}
+                    <li><a href="{{ toplinks.url }}">{{ toplinks.name }}</a></li>
+                  {% endif %}
+                {% endfor %}
+              </ul>
+            </nav>
+
+          </div>
+
+          <nav id="main-menu">
+            {% include nav.html %}
+          </nav>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+
+<div id="booking-wrapper" class="">
+  <article id="booking" class="wrapper container">
+    <form action="https://gc.synxis.com/rez.aspx?" method="get" target="_blank" class="form">
+      <input type="hidden" name="hotel" value="20986">
+      <input type="hidden" name="chain" value="16087">
+      <input type="hidden" name="start" value="availresults">
+      <fieldset>
+        <legend>Make Your Reservation</legend>
+        <div class="columns">
+          <div class="column dates"> <input type="text" class="date-picker booking-dates validate[required]" name="arrive" placeholder="Check-in" id="booking-checkin"> </div>
+          <div class="column dates"> <input type="text" class="date-picker booking-dates" name="depart" placeholder="Check-out" id="booking-checkout"> </div>
+          <div class="column promo">
+            <select id="code-dropdown">
+                           <option value="1">Group Code</option>
+                           <option value="2">Promo Code</option>
+                           <option value="4">Corporate Code</option>
+                           <option value="3">Travel Agent ID</option>
+                        </select>
+          </div>
+          <input type="text" id="code" name="promo" placeholder="">
+          <div class="column submit"> <input type="hidden" name="uuid" class="uuid"> <button type="submit" class="button" onclick="var s=s_gi(s_account); s.linkTrackVars='events,products'; s.linkTrackEvents='event6,scOpen'; s.events='event6,scOpen'; s.products=';The Evelyn'; (s.tl(this,'o','Booking Initiated') );">Book Now</button>            </div>
+          <div class="column form-info"> <a class="bestrate" href="/bestrates">Best Rate Guarantee</a> <span class="reservation-phone InfinityNumber">212.545.8000</span> </div>
+        </div>
+      </fieldset>
+    </form>
+  </article>
+</div>

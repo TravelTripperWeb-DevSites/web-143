@@ -1,0 +1,34 @@
+{
+  "title": "BED & BREAKFAST WITH TARALLUCCI E VINO",
+  "sort_order": 6,
+  "isPublished": true,
+  "expire_date": null,
+  "readmore_btn_text": "Read More",
+  "short_desc": "<p>Sleep with us &amp; enjoy a hot breakfast with homemade pasteries and quality coffee at Tarallucci E Vino-Nomad!</p>",
+  "url_friendly_name": "taralluccievino",
+  "readmore_btn_link": "blackbarn",
+  "book_pkg_online": "Book this Package",
+  "long_desc": "<div>\n<p>New York City is teeming with all sorts of unique opportunities for adventure, but sightseeing is exhausting! Wake up on the right side of the bed and begin your day with a $50 credit towards breakfast at our partner restaurant, <a href=\"https://www.taralluccievino.net/\">Tarallucci E Vino-Nomad</a>.</p>\n<p>Book this New York hotel deal to enjoy:</p>\n<p>&bull; Luxury Accommodations for Two<br />&bull; $50 credit towards breakfast/brunch at Tarallucci E Vino- Nomad, located one block from the hotel.</p>\n<p>Please see below for restaurant's morning schedule:</p>\n<p>Mon-Fri Breakfast: 8 am - 11 am</p>\n<p>Sat/Sun Brunch: 11 am - 5 pm</p>\n<p>Details: Rates are based upon double occupancy and are exclusive of sales and occupancy tax. Subject to availability and change. Offer not valid for groups of 5 or more.&nbsp;Offer excludes in any other offers and can be redeemed only at Tarallucci e Vino-Nomad&nbsp;Restaurant.</p>\n</div>",
+  "offer_banner_image": {
+    "url": "/images/cms/cache/1920x1080/8c/670-8ce0feac5debec245da3426e5716faad.jpg"
+  },
+  "offer_image": {
+    "url": "https://cdn.traveltripper.io/site-assets/414_450_2637/media/2017-04-21-175144/©giadapaoloni_taralluccievino_NOMAD LOCATION5406 (550 x415).jpg"
+  },
+  "offer_image_icon": {
+    "url": "https://cdn.traveltripper.io/site-assets/414_450_1406/media/2017-01-23-085231/bedandbreakfast.jpg"
+  },
+  "offer_fullimage": {
+    "url": "https://cdn.traveltripper.io/site-assets/414_450_1406/media/2017-01-23-090435/breadbreakfull.jpg"
+  },
+  "book_pkg_url": "https://gc.synxis.com/rez.aspx?Hotel=20986&Chain=16087&promo=BandGO",
+  "offer_banner_image1": {
+    "url": "https://cdn.traveltripper.io/site-assets/414_450_2637/media/2017-04-21-174424/©giadapaoloni_taralluccievino_IMG_2373 (1920 x 1080).jpg"
+  },
+  "offer_banner_image2": {
+    "url": "https://cdn.traveltripper.io/site-assets/414_450_2637/media/2017-04-24-145456/Tarallucci_e_viino 1920 x 1080.jpg"
+  },
+  "offer_banner_image3": {
+    "url": "https://cdn.traveltripper.io/site-assets/414_450_2637/media/2017-04-21-174638/Tarallucci_e_Vino_Jan2017_078 (1920 x 1080).jpg"
+  }
+}

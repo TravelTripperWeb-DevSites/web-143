@@ -1,0 +1,13 @@
+{
+	"category": "gallery_category1",
+	"img_id": 17,
+	"img_caption": "The Key To NYC",
+	"thumb_image": {
+		"url": "https://cdn.traveltripper.io/site-assets/414_450_1406/media/2017-01-27-014952/Thumb_18_17-d1d8c9d7a8959127040f91eb4ad6a5de.jpg"
+	},
+	"full_image": {
+		"url": "https://cdn.traveltripper.io/site-assets/414_450_1406/media/2017-01-27-020036/Full_18_17-dd635ae0e819b23f33e6ed13cf6eeb07.jpg"
+	},
+	"sort_order": 3,
+	"name": "The Key To NYC"
+}

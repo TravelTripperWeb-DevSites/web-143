@@ -1,0 +1,205 @@
+{% assign name = obj %}{% assign obj = site.data.main %}<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+ <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-M7BMVLQ');</script>
+<!-- End Google Tag Manager -->
+
+{% if page.seo_title %}
+<title>{{page.seo_title}}</title>
+<meta name="description" content="{{page.seo_description}}" />
+{% else %}
+<title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+<meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% endif %}">
+{% endif %}
+
+  {% if page.metatags %} <meta name="robots" content="{{page.metatags}}">{% endif %}
+<script type="text/javascript">if(window.top.location!=document.location)window.top.location.href=document.location.href;</script>
+ <link href="/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+  <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
+
+   <link rel="canonical" href="https://www.theevelyn.com{{ page.url }}" />
+   {% if page.hreftag == "display" %}
+   <link rel="alternate" href="https://www.theevelyn.com/" hreflang="en-us" />
+   <link rel="alternate" href="https://www.theevelyn.com/inicio/" hreflang="es" />
+   <link rel="alternate" href="https://www.theevelyn.com/notre-htel/" hreflang="fr" />
+   <link rel="alternate" href="https://www.theevelyn.com/nossohotel/" hreflang="pt" />
+   <link rel="alternate" href="https://www.theevelyn.com/unser-hotel/" hreflang="de" />
+   <link rel="alternate" href="https://www.theevelyn.com/nostrohotel/" hreflang="it" />
+{% endif %}
+
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}">
+ <script src="/js/jquery.min.js"></script>
+
+<!-- Start fancyBox -->
+<link rel="stylesheet" href="/css/share.css">
+<link rel="stylesheet" href="/css/jquery.fancybox.css?v=2.1.6" type="text/css" media="screen" />
+<script type="text/javascript" src="/js/jquery.fancybox.pack.js?v=2.1.6"></script>
+<!-- End fancyBox -->
+
+<!-- Start  fancyBox -->
+ <script type="text/javascript">
+$(document).ready(function() {
+  $(".share").fancybox({
+    maxWidth  : 800,
+    maxHeight : 600,
+    fitToView : false,
+    width   : '35%',
+    height    : '15%',
+    autoSize  : false,
+    closeClick  : false,
+    closeBtn: true,
+    openEffect  : 'none',
+    closeEffect : 'none'
+  });
+});
+</script>
+<!-- End Add fancyBox -->
+
+<script src="/js/bootstrap.min.js"></script>
+<!--script   src="http://www.geoplugin.net/javascript.gp" type="text/javascript"> </script-->
+<script src="/js/geo_special.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/scripts.min.js"></script>
+
+{% if page.url == '/offers/' %}<script src="/js/jquery.expire.js"></script>{% endif %}
+
+<script src="/js/hebsrap.0.2.js"  id="hebsrap" data-hotel="60998" data-autoupdate="4" data-width="744" data-height="414" data-framesrc="/skins/chandler/assets/desktop/rap/index[N].html" data-frames="2" async defer></script>
+
+<script>
+          var siteURL = '{{obj.siteURL}}',
+            templateURL = '/',
+            siteSettings = {
+                name: "The Evelyn",
+                country: "USA",
+                state: "NY",
+                city: "New York",
+                adr: "7 East 27th Street",
+                zip: "10016",
+                lat: "40.744023845672835",
+                lng: "-73.98695928154524",
+                phone: "855-468-3501",
+            };
+
+        $(document).ready(function(){
+            function getParameterByName(name, url) {
+                    if (!url) url = window.location.href;
+                    name = name.replace(/[\[\]]/g, "\\$&");
+                    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                        results = regex.exec(url);
+                    if (!results) return null;
+                    if (!results[2]) return '';
+                    return decodeURIComponent(results[2].replace(/\+/g, " "));
+             }
+
+           if(getParameterByName('scemail')){
+              $("#email").val(getParameterByName('scemail'));
+             }
+      });
+
+    </script>
+
+  <script  src="//maps.googleapis.com/maps/api/js?key=AIzaSyACLjVewAAq90uHwYgxeoZpcnsZ5q8T3YE"></script>
+
+<!--Start Guestfolio Signup Assets-->
+<script src="https://guestfolio.net/assets/embedded.js" type="text/javascript"></script>
+<!--End Guestfolio Signup Assets-->
+
+
+<!-- Infinity Tracking Code v2.0
+Copyright Infinity 2017
+www.infinitycloud.com -->
+
+<script type="text/javascript">
+
+var _ictt = _ictt || [];
+
+_ictt.push(['_setIgrp','2235']); // Installation ID
+
+_ictt.push(['_enableGAIntegration',{'gua':true,'ga':false}]);
+
+_ictt.push(['_enableAutoDiscovery']);
+
+_ictt.push(['_track']);
+
+(function() {
+
+var ict = document.createElement('script'); ict.type = 'text/javascript'; ict.async = true;
+
+ict.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'ict.infinity-tracking.net/js/nas.v1.min.js';
+
+var scr = document.getElementsByTagName('script')[0]; scr.parentNode.insertBefore(ict, scr);
+
+})();
+
+</script>
+<!-- Infinity Tracking Code End -->
+
+
+<!-- Facebook Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window,document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '821305881334020');
+fbq('track', 'PageView');
+</script>
+<noscript>
+<img height="1" width="1"
+src="https://www.facebook.com/tr?id=821305881334020&ev=PageView
+&noscript=1"/>
+</noscript>
+<!-- End Facebook Pixel Code -->
+
+<!-- Facebook Pixel Code -->
+
+<script>
+    ! function(f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function() {
+            n.callMethod ?
+
+                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+        };
+        if (!f._fbq) f._fbq = n;
+
+        n.push = n;
+        n.loaded = !0;
+        n.version = '2.0';
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s)
+    }(window,
+
+        document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+
+    fbq('init', '1503170236373984');
+
+    fbq('track', 'PageView');
+</script>
+
+<noscript><img height="1" width="1" style="display:none"
+
+src="https://www.facebook.com/tr?id=1503170236373984&ev=PageView&noscript=1"
+
+/></noscript>
+
+<!-- DO NOT MODIFY -->
+
+<!-- End Facebook Pixel Code -->
+
+</head>

@@ -1,0 +1,77 @@
+{
+  "title": {
+    "required": true,
+    "label": "Offer Title"
+  },
+  "url_friendly_name": {
+    "required": true,
+    "label": "URL Extension"
+  },
+  "sub_title": {
+    "type": "richtext",
+    "label": "Sub Title"
+  },
+  "short_desc": {
+    "required": true,
+    "type": "richtext",
+    "label": "Short Desc"
+  },
+  "long_desc": {
+    "required": true,
+    "type": "richtext",
+    "label": "Detail Desc"
+  },
+  "offer_banner_image1": {
+    "required": true,
+    "type": "image",
+    "hint": "recommended image size is 1920 x 1080 (px)",
+    "label": "Banner Image #1"
+  },
+  "offer_banner_image2": {
+    "required": false,
+    "type": "image",
+    "hint": "recommended image size is 1920 x 1080 (px)",
+    "label": "Banner Image #2 (Optional)"
+  },
+  "offer_banner_image3": {
+    "required": false,
+    "type": "image",
+    "hint": "recommended image size is 1920 x 1080 (px)",
+    "label": "Banner Image #3 (Optional)"
+  },
+  "offer_image": {
+    "required": true,
+    "type": "image",
+    "hint": "recommended image size is 550 x 415 (px)",
+    "label": "Small Image"
+  },
+  "readmore_btn_text": {
+    "required": true,
+    "label": "Read More Button Text"
+  },
+  "book_pkg_online": {
+    "label": "Book Now Button Text"
+  },
+  "book_pkg_url": {
+    "label": "Book Now Button URL"
+  },
+  "page_title": {
+    "label": "Page Title Tag - 55 Character Limit"
+  },
+  "meta_content": {
+    "type": "richtext",
+    "label": "Meta Description - 155 Character Limit"
+  },
+  "sort_order": {
+    "type": "integer",
+    "required": true
+  },
+  "isPublished": {
+    "label": "Publish Entry?",
+    "type": "boolean"
+  },
+  "expire_date": {
+    "label": "Expiration Date",
+    "type": "date"
+  }
+}

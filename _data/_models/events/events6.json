@@ -1,0 +1,29 @@
+{
+  "to_date": "Fri Aug 18 2017 00:00:00 GMT-0400 (Eastern Daylight Time)",
+  "title": "New York City Restaurant Week",
+  "from_date": "Mon Jul 24 2017 00:00:00 GMT-0400 (Eastern Daylight Time)",
+  "location": "New York City",
+  "short_description": "<p>Explore the many fine-dining restaurants of New York City with NYC Restaurant Week. &nbsp;</p>",
+  "more_content": "<p>NYC Restaurant Week is a bi-annual event which promotes fine-dining restaurants with affordable three-course prix-fixe menus for lunch and/or dinner. From July 24th-August 18th, please check their official <a href=\"https://www.nycgo.com/restaurant-week-about\">website&nbsp;</a>for participating restaurants, menus and more.</p>",
+  "seo_description": "NYC Restaurant Week Summer 2017 offers three-course prix-fixed menu options",
+  "seo_title": "NYC Restaurant Week Summer 2017",
+  "eventimage": {
+    "url": "https://cdn.traveltripper.io/site-assets/414_450_5480/media/2017-07-24-161358/1.JPG",
+    "path": "https://cdn.traveltripper.io/site-assets/414_450_5480/media/2017-07-24-161358/1.JPG",
+    "file_type": "image/jpeg",
+    "name": "RW Summer 2017(1)",
+    "tags": "events ",
+    "url_large": "//cdn.traveltripper.io/site-assets/414_450_5480/media/2017-07-24-161358/large_1.JPG",
+    "url_thumb": "//cdn.traveltripper.io/site-assets/414_450_5480/media/2017-07-24-161358/thumb_1.JPG",
+    "url_medium": "//cdn.traveltripper.io/site-assets/414_450_5480/media/2017-07-24-161358/medium_1.JPG",
+    "url_small": "//cdn.traveltripper.io/site-assets/414_450_5480/media/2017-07-24-161358/small_1.JPG",
+    "url_xsmall": "//cdn.traveltripper.io/site-assets/414_450_5480/media/2017-07-24-161358/xsmall_1.JPG",
+    "width": 5456,
+    "height": 3064,
+    "file_size": 4096000,
+    "alt": "Restaurant Week Summer 2017",
+    "caption": "",
+    "description": ""
+  },
+  "url_friendly_name": "nyc-restaurant-week"
+}

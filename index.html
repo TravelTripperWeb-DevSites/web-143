@@ -1,9 +1,1322 @@
 ---
-layout: default
-title: Region Example
+excerpt: Gracious hospitality, a rich sense of history, and exceptional service await at The Evelyn
+pageclass: home
+hreftag: display
+parent: home
+title_localized:
+  en: Home | NoMad Hotel | The Evelyn
+label_localized:
+  en:
+layout_localized:
+  en: default
+permalink_localized:
+  en:
+meta_description_localized:
+  en:
+meta_keywords_localized:
+  en:
+published_localized:
+  en: true
 ---
 
-Regions:
-<hr/>
-{% region region1 %}
-{% region region2 %}
+<div id="photos">
+   <div class="slideshow">
+   {% assign banners = site.data._models.homepage_slideshow | sort: 'sort_order' %}
+
+    {% for banner in banners %}
+    {% if banner.unpublish != true %}
+       {% if banner.CountryCode %}
+            <figure class="bannerfor{% for country in banner.CountryCode %} {{ country.code }}{% endfor %} photo {{ banner.returnUser }}" style="background-image:url('{{ banner.image.url }}');">
+       {% else %}
+         <figure class="photo {{ banner.returnUser }}" style="background-image:url('{{ banner.image.url }}');">
+       {% endif %}
+         {% if banner.linktype == "Image" %}
+          <a href="{{ banner.booknow }}"><img src="{{ banner.image.url }}" alt=""></a>
+         {% else %}
+            <img src="{{ banner.image.url }}" alt="">
+         {% endif %}
+          {% if banner.name and banner.name !="" %}
+            <div class="caption">
+               <figcaption>{{ banner.name }}</figcaption>
+               {% if banner.booknow and banner.booknow !="" %}
+               <a href="{{ banner.booknow }}" class="button">
+               {% if banner.linktype == "Read More" %}
+                    Read More
+               {% elsif  banner.linktype == "Join Now" %}
+                Join Now
+               {% else %}
+                Book Now
+               {% endif %}
+               </a>
+               {% endif %}
+            </div>
+         {% endif %}
+      </figure>
+    {% endif %}
+    {% endfor %}
+
+   </div>
+   <div class="scroll-to-explore">Scroll to Explore</div>
+</div>
+
+<div id="promos" class="wrapper container">
+  <div class="col-md-12">
+    <div class="slideshow row">
+
+      <!-- Captured numbers may act as strings, and can be converted to numbers using the following hack: -->
+      {% assign currentDate = currentDate | plus: 0 %}
+
+      {% assign promo_tiles = site.data._models.promo_tiles | sort : "sort_order" %}
+
+      {% for promo in promo_tiles %}
+        <!-- Check to see if the promo has been published. -->
+        {% if promo.isPublished == true %}
+          <!-- Capture the current date. -->
+          {% capture currentDate %}{{ 'now' | date: '%s' }}{% endcapture %}
+          <!-- Capture the promo's expiration date. -->
+          {% capture expireDate %}{{ promo.expire_date | date: '%s' }}{% endcapture %}
+          <!-- If the current date is less than the promo's expiration date OR the promo doesn't have a expiration date, show the promo.  -->
+          {% if currentDate < expireDate or promo.expire_date == null %}
+
+            <div class="col-xs-6 col-sm-6 col-md-3">
+              <article id="smartrate" class="fr-promo">
+                <h4><a href="{{ promo.button_link }}" class="fs_link fs_title">{{ promo.title }}</a></h4>
+                <a rel="external" href="{{ promo.button_link }}" class="fs_link " onclick="var s=s_gi(s_account); s.linkTrackVars='events,eVar1'; s.linkTrackEvents='event6,scOpen'; s.events='event6,scOpen'; s.eVar1='Smart Rate Promo Tile'; s.products=';The Evelyn'; (s.tl(this,'o','Promo Booking Initiated') );"><img title="{{ promo.title }}" alt="{{ promo.title }}" src="{{ promo.item_image.url }}" class="fs_image"></a>
+                <div class="description">
+                  <span class="fs_descr">{{ promo.desc }}</span>
+                  <!--<p class="price"><span class="fs_price">Starting from $159</span> <span class="fs_price_copy">per night</span></p>-->
+                  <a href="{{ promo.button_link }}" class="fs_link fs_link_title button" onclick="var s=s_gi(s_account); s.linkTrackVars='events,eVar1'; s.linkTrackEvents='event6,scOpen'; s.events='event6,scOpen'; s.eVar1='Smart Rate Promo Tile'; s.products=';The Evelyn'; (s.tl(this,'o','Promo Booking Initiated') );">{{ promo.button_text }}</a>
+                </div>
+              </article>
+            </div>
+
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+
+    </div>
+  </div>
+</div>
+
+      {% regionblock  indexpage_content %}
+      <div id="content-area" class="container">
+         <section id="content">
+            <h1>An Exceptional Hotel Near Madison Square Park</h1>
+            <h2>Welcome to The Evelyn</h2>
+            <p>Gracious hospitality, a rich sense of history and exceptional service await you at The Evelyn, a historic boutique NYC hotel in the NoMad neighborhood of Manhattan. Madison Square Park, the Empire State Building, and Midtown are just minutes away. Our hotel near Madison Square Park is perfectly situated for business and leisure travelers alike. Our modern <a href="/ourhotel/amenities" onclick="">amenities</a> and relaxed atmosphere, with accents that reference the rich heritage of the neighborhood and our landmarked building, will make you feel right at home in the heart of New York City.</p>
+            <div class="expand-button"></div>
+            <p>The Evelyn is offering newly residential inspired rooms with references to an Art Nouveau Style. Our NoMad hotel is inspired by the musical and art heritage of the neighborhood, which was the epicenter of the popular music movement in the late 19th and early 20th centuries. The music theme is reflected throughout the rooms, corridors and bathrooms. The NoMad District (now also known as "NoMad" - North of Madison Square Park) is one of Manhattan's most popular neighborhoods, characterized by its beautiful historic architecture, exceptional bars, restaurants and many other <a href="/explore" onclick="">attractions</a> all tucked away on quiet side streets. Centered around Madison Square Park, the NoMad District is within walking distance of Midtown, Union Square, Greenwich Village, and NYU.</p>
+            <p>We invite you to learn more about the <a href="/explore/neighborhood" onclick="">neighborhood</a>, explore&nbsp;<a href="/accommodations" onclick="">accommodations</a>&nbsp;at our NoMad hotel in NYC, and <a href="/contact" onclick="">contact us</a> if there is anything we can do assist you in planning your stay. We look forward to welcoming you to The Evelyn on your next trip to New York City.</p>
+         </section>
+      </div>
+      {% endregionblock %}
+
+      {% regionblock test_image_content, type:image, suggested_height:100, suggested_width:50 %}
+        <img src="/images/cms/cache/460x240/af/10-af8ced44e1098bfbd9eba7b4700405a5.jpg"/>
+      {% endregionblock%}
+
+      {% regionblock hometabs_content %}
+      <section id="home-tabs" class="wrapper container">
+         <div class="col-sm-6">
+            <article id="tab-1">
+            <img src="/images/cms/cache/460x240/af/10-af8ced44e1098bfbd9eba7b4700405a5.jpg"/>
+            <h3>Visual Gallery</h3>
+            <div class="controls-tab"> <a href="/gallery" class="viewmore">View More</a> </div>
+                  </article></div>
+         <div class="col-sm-6">
+         <article id="tab-2">
+            <img src="/images/cms/cache/460x240/51/25-515d19a10b1c6388f1b71db43b1cf099.jpg"/>
+            <h3>Members Only</h3>
+            <div class="controls-tab"> <a href="/members-only/" class="viewmore events">View All Offers</a> </div>
+                  </article></div>
+      </section>
+               {% endregionblock%}
+      <section class="poi container">
+         <nav class="category-selector"> <button data-poi-category-index="0" data-poi-category-name="Bars &amp; Lounges" class="active">Bars & Lounges</button> <button data-poi-category-index="1" data-poi-category-name="Shopping" >Shopping</button> <button data-poi-category-index="2" data-poi-category-name="Entertainment" >Entertainment</button> <button data-poi-category-index="3" data-poi-category-name="Culture &amp; Museums" >Culture & Museums</button> <button data-poi-category-index="4" data-poi-category-name="Outdoor Spaces" >Outdoor Spaces</button> <button data-poi-category-index="5" data-poi-category-name="Colleges &amp; Universities" >Colleges & Universities</button> <button data-poi-category-index="6" data-poi-category-name="Spas" >Spas</button> <button data-poi-category-index="7" data-poi-category-name="Dining" >Dining</button> </nav>
+         <div class="categories">
+            <article class="category visible" data-poi-category-index="0" data-poi-category-name="Bars &amp; Lounges">
+               <table>
+                  <tr>
+                     <th>Place Name</th>
+                     <th>Phone</th>
+                     <th>Distance</th>
+                     <th>Show on map</th>
+                  </tr>
+                  <tr class="point" data-lat="40.7435999" data-lng="-73.9844404" data-name="The Churchill Tavern" data-address="45 East 28th Street, New York, NY 10016" data-phone="(646) 476-8419">
+                     <td class="title"> <span class="expand-description">The Churchill Tavern</span> </td>
+                     <td class="center">(646) 476-8419</td>
+                     <td class="center">0.19</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <img src="/images/cms/cache/100x100/5b/427-5b647a3f2354b5493bae7a3de69f98ea.jpg" alt="The Churchill Tavern" class="thumbnail">
+                        <p>A fine English Tavern, serving the best of British and local craft beer. The menu combines traditional English fare with sophisticated culinary skills. Take an historical trip to the loo where you can hear segments of speeches given by Winston Churchill. Tuesday night is Trivia night starting at 7pm and don't miss their traditional English roast on Sundays at noon. Also, stop in for their "Finest Hour(s)" every Monday - Friday from 12-7 pm.</p>
+                        <nav> <a href="http://www.thechurchillny.com/" class="button small-button" target="_blank">Learn More</a> </nav>
+                     </td>
+                  </tr>
+                  <tr class="point" data-lat="40.7386849" data-lng="-73.994615" data-name="The Raines Law Room" data-address="48 W 17th Street, New York, NY 10011" data-phone="">
+                     <td class="title"> <span class="expand-description">The Raines Law Room</span> </td>
+                     <td class="center"></td>
+                     <td class="center">0.65</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <img src="/images/cms/cache/100x100/8c/428-8cd869c1c1755218f63afc62b8941e46.jpg" alt="The Raines Law Room" class="thumbnail">
+                        <p>The Raines Law Room is rated by Zagat as one of NYC's best cocktail bars and is recognized as an upscale speakeasy. A semi-secret entrance (ring bell) leads to this plush lounge crafting Prohibition-era cocktails. They only accept reservations for Sundays, Mondays & Tuesdays, but walk-ins are encouraged.</p>
+                        <nav> <a href="http://www.raineslawroom.com/" class="button small-button" target="_blank">Learn More</a> </nav>
+                     </td>
+                  </tr>
+                  <tr class="point" data-lat="40.74007" data-lng="-73.993163" data-name="Flatiron Lounge" data-address="37 W 19th St, New York, NY 10011" data-phone="(212) 727-7741">
+                     <td class="title"> <span class="expand-description">Flatiron Lounge</span> </td>
+                     <td class="center">(212) 727-7741</td>
+                     <td class="center">0.54</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <img src="/images/cms/cache/100x100/e3/430-e3cd84f4d2057dfbf15cd124de923edc.jpg" alt="Flatiron Lounge" class="thumbnail">
+                        <p>Located in a landmark building constructed in 1910, the Flatiron Lounge evokes the decadence and romance of a by-gone era. The sounds of jazz draw you in through a dramatic archway leading to the meticulously restored 30-foot mahogany bar. Constructed in 1927, the bar itself was once stationed at The Ballroom, a New York institution frequented by the likes of Frank Sinatra and other celebrities of the time. Reflecting an era of elegance, a row of Deco-inspired blue and white stained glass lights hang suspended over the bar. Thousands of vintage cobalt-blue mirrored glass tiles cover an entire wall, overlooking deep red circular booths.</p>
+                        <nav> <a href="http://flatironlounge.com/" class="button small-button" target="_blank">Learn More</a> </nav>
+                     </td>
+                  </tr>
+                  <tr class="point" data-lat="40.7362243" data-lng="-73.9874293" data-name="Dear Irving" data-address="55 Irving Place, New York, NY 10003" data-phone="">
+                     <td class="title"> <span class="expand-description">Dear Irving</span> </td>
+                     <td class="center"></td>
+                     <td class="center">0.7</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <img src="/images/cms/cache/100x100/eb/431-ebca31a85837a93c1726dca5effc6b68.jpg" alt="Dear Irving" class="thumbnail">
+                        <p>Step back in time to an era reminiscent of Jay Gatsby or Don Draper. Dear Irving is a classy, intimate and sexy establishment with crafty and creative drinks. Cocktail waitresses appear at the flip of an orange switch, which you can use when you're ready for another round.</p>
+                        <nav> <a href="http://www.dearirving.com/" class="button small-button" target="_blank">Learn More</a> </nav>
+                     </td>
+                  </tr>
+                  <tr class="point" data-lat="40.738453" data-lng="-73.988609" data-name="Tamu Lola" data-address="40E 20th Street, New York, NY 10003" data-phone="212-529-7870">
+                     <td class="title"> <span class="expand-description">Tamu Lola</span> </td>
+                     <td class="center">212-529-7870</td>
+                     <td class="center">0.47</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <img src="/images/cms/cache/100x100/6d/474-6d54d5f300fb49618fbe9fd4e0c72bca.jpg" alt="Tamu Lola" class="thumbnail">
+                        <p>New to the Flatiron neighborhood, Tamu Lola is a great happy hour spot with one-of-a-kind cocktails and swanky atmosphere.</p>
+                        <nav> <a href="http://www.tamulola.com/" class="button small-button" target="_blank">Learn More</a> </nav>
+                     </td>
+                  </tr>
+                  <tr class="point" data-lat="40.7364861" data-lng="-73.9866946" data-name="Pete&#039;s Tavern" data-address="129 E 18th St, New York, NY 10003" data-phone="(212) 473-7676">
+                     <td class="title"> <span class="expand-description">Pete's Tavern</span> </td>
+                     <td class="center">(212) 473-7676</td>
+                     <td class="center">0.7</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <img src="/images/cms/cache/100x100/0e/576-0ec1a4988ffaf37b7328f6c8e859042e.jpg" alt="Pete&#039;s Tavern" class="thumbnail">
+                        <p>Vintage bar, in continuous operation since 1864, serving burgers & Italian fare.</p>
+                        <nav> <a href="http://www.petestavern.com/" class="button small-button" target="_blank">Learn More</a> </nav>
+                     </td>
+                  </tr>
+                  <tr class="point" data-lat="40.737025" data-lng="-73.9877829" data-name="Ainsworth Park" data-address="111 E 18th St, New York, NY 10003" data-phone="(212) 673-2467">
+                     <td class="title"> <span class="expand-description">Ainsworth Park</span> </td>
+                     <td class="center">(212) 673-2467</td>
+                     <td class="center">0.64</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <img src="/images/cms/cache/100x100/68/593-683fb2f1a99d4b8a02f6782a31c92a0b.jpg" alt="Ainsworth Park" class="thumbnail">
+                        <p>Upscale American eatery & bar serving brunch, dinner & cocktails in a big, modern space with patio.</p>
+                        <nav> <a href="http://theainsworth.com/" class="button small-button" target="_blank">Learn More</a> </nav>
+                     </td>
+                  </tr>
+                  <tr class="point" data-lat="40.7437803" data-lng="-73.9827379" data-name="The Cannibal Liquor House" data-address="111 E 29th Street" data-phone="(212) 685-5585">
+                     <td class="title"> <span class="expand-description">The Cannibal Liquor House</span> </td>
+                     <td class="center">(212) 685-5585</td>
+                     <td class="center">0.31</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <img src="/images/cms/cache/100x100/39/741-39f3dc4c0a9272bf9171e0a239a1f784.jpg" alt="The Cannibal Liquor House" class="thumbnail">
+                        <p>The Cannibal Liquor House is principally a cocktail lounge with bar snacks from Cannibal chef Francis Derby.</p>
+                        <nav> <a href="http://thecanniballiquorhouse.com/" class="button small-button" target="_blank">Learn More</a> </nav>
+                     </td>
+                  </tr>
+               </table>
+            </article>
+            <article class="category " data-poi-category-index="1" data-poi-category-name="Shopping">
+               <table>
+                  <tr>
+                     <th>Place Name</th>
+                     <th>Phone</th>
+                     <th>Distance</th>
+                     <th>Show on map</th>
+                  </tr>
+                  <tr class="point" data-lat="40.7420207" data-lng="-73.989928" data-name="Eataly" data-address="200 5th Avenue" data-phone="(212) 229-2560">
+                     <td class="title"> <span class="expand-description">Eataly</span> </td>
+                     <td class="center">(212) 229-2560</td>
+                     <td class="center">0.26</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <img src="/images/cms/cache/100x100/1f/433-1f8ef4c7fad043aa462a0382839203e2.jpg" alt="Eataly" class="thumbnail">
+                        <p>Eataly is the largest Italian marketplace in the world, comprising a variety of restaurants, food and beverage counters, bakery, retail items, and a cooking school.</p>
+                     </td>
+                  </tr>
+                  <tr class="point" data-lat="40.7404719" data-lng="-73.9897151" data-name="Restoration Hardware" data-address="935 Broadway, New York, NY 10010" data-phone="(212) 260-9479">
+                     <td class="title"> <span class="expand-description">Restoration Hardware</span> </td>
+                     <td class="center">(212) 260-9479</td>
+                     <td class="center">0.33</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <img src="/images/cms/cache/100x100/0b/554-0b1c663497f8edf58c97b7d4cd7b3a13.jpg" alt="Restoration Hardware" class="thumbnail">
+                        <p>Upscale home goods brand featuring chic, timeless furniture, textiles, tableware, lighting & more.</p>
+                        <nav> <a href="https://www.restorationhardware.com/" class="button small-button" target="_blank">Learn More</a> </nav>
+                     </td>
+                  </tr>
+                  <tr class="point" data-lat="40.7394413" data-lng="-73.9899609" data-name="Design Within Reach" data-address="903 Broadway, New York, NY 10010" data-phone="(212) 477-1155">
+                     <td class="title"> <span class="expand-description">Design Within Reach</span> </td>
+                     <td class="center">(212) 477-1155</td>
+                     <td class="center">0.42</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <img src="/images/cms/cache/100x100/79/555-79ebbd2a1c72368b1c6d09d6a846d681.jpg" alt="Design Within Reach" class="thumbnail">
+                        <p>Design Within Reach offers the world's largest selection of authentic modern furniture, lighting and accessories from designers past and present.</p>
+                        <nav> <a href="http://www.dwr.com/" class="button small-button" target="_blank">Learn More</a> </nav>
+                     </td>
+                  </tr>
+                  <tr class="point" data-lat="40.7388488" data-lng="-73.9895118" data-name="Beecher&#039;s Handmade Cheese" data-address="900 Broadway New York, NY 10003" data-phone="(212) 466-3340">
+                     <td class="title"> <span class="expand-description">Beecher's Handmade Cheese</span> </td>
+                     <td class="center">(212) 466-3340</td>
+                     <td class="center">0.43</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <img src="/images/cms/cache/100x100/cd/556-cd7ace410a769f90901bfd3db3d280d5.jpg" alt="Beecher&#039;s Handmade Cheese" class="thumbnail">
+                        <p>Beecher's Handmade Cheese is an artisan cheesemaker and retail shop with locations in the Pike Place Market, Seattle, Washington and New York City's Flatiron District.</p>
+                        <nav> <a href="http://www.beechershandmadecheese.com/" class="button small-button" target="_blank">Learn More</a> </nav>
+                     </td>
+                  </tr>
+                  <tr class="point" data-lat="40.7387639" data-lng="-73.9902009" data-name="Fishs Eddy" data-address="889 Broadway, New York, NY 10003" data-phone="(212) 420-9020">
+                     <td class="title"> <span class="expand-description">Fishs Eddy</span> </td>
+                     <td class="center">(212) 420-9020</td>
+                     <td class="center">0.47</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <img src="/images/cms/cache/100x100/b0/557-b003be98e757462512baa4aa85c6c196.jpg" alt="Fishs Eddy" class="thumbnail">
+                        <p>Fixture with an eclectic selection of flatware, dishes & glasses, from funky to vintage styles.</p>
+                        <nav> <a href="http://www.fishseddy.com/" class="button small-button" target="_blank">Learn More</a> </nav>
+                     </td>
+                  </tr>
+                  <tr class="point" data-lat="40.7753527" data-lng="-73.9770474" data-name="ABC Carpet &amp; Home" data-address="888 &amp; 881 Broadway, New York, NY 10003" data-phone="(212) 473-3000">
+                     <td class="title"> <span class="expand-description">ABC Carpet & Home</span> </td>
+                     <td class="center">(212) 473-3000</td>
+                     <td class="center">2.38</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <img src="/images/cms/cache/100x100/bc/559-bc3439d259ef96fe17d88fb70d83209a.jpg" alt="ABC Carpet &amp; Home" class="thumbnail">
+                        <p>Home-decor shop where unique, often extravagant wares are displayed on six cavernous floors.</p>
+                        <nav> <a href="http://www.abchome.com/" class="button small-button" target="_blank">Learn More</a> </nav>
+                     </td>
+                  </tr>
+                  <tr class="point" data-lat="40.7377239" data-lng="-73.9905581" data-name="Paragon Sports" data-address="867 Broadway, New York, NY 10003" data-phone="(212) 255-8889">
+                     <td class="title"> <span class="expand-description">Paragon Sports</span> </td>
+                     <td class="center">(212) 255-8889</td>
+                     <td class="center">0.52</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <img src="/images/cms/cache/100x100/67/560-671f453c40db598fca318dbc02b11994.jpg" alt="Paragon Sports" class="thumbnail">
+                        <p>Sports stalwart selling equipment & clothing for athletic activities ranging from baseball to yoga.</p>
+                        <nav> <a href="http://www.paragonsports.com/webapp/wcs/stores/servlet/TopCategories1_10551_10051_-1" class="button small-button" target="_blank">Learn More</a> </nav>
+                     </td>
+                  </tr>
+                  <tr class="point" data-lat="40.7379194" data-lng="-73.9898921" data-name="Hästens" data-address="876 Broadway, New York, NY 10003" data-phone="(212) 505-8022">
+                     <td class="title"> <span class="expand-description">Hästens</span> </td>
+                     <td class="center">(212) 505-8022</td>
+                     <td class="center">0.49</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <img src="/images/cms/cache/100x100/61/561-61089901285311e13a1e3b4fe0652267.jpg" alt="Hästens" class="thumbnail">
+                        <p>Hästens is a Swedish manufacturer established in 1852, today specializing in beds, bedlinen, pillows and lifestyle accessories.</p>
+                        <nav> <a href="http://www.hastens.com/en-us/" class="button small-button" target="_blank">Learn More</a> </nav>
+                     </td>
+                  </tr>
+                  <tr class="point" data-lat="40.7411576" data-lng="-73.9950412" data-name="Kleinfeld Bridal" data-address="110 W 20th St, New York, NY 10011" data-phone="(646) 633-4300">
+                     <td class="title"> <span class="expand-description">Kleinfeld Bridal</span> </td>
+                     <td class="center">(646) 633-4300</td>
+                     <td class="center">0.63</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <img src="/images/cms/cache/100x100/0f/563-0f7e1a5022f4580873e0e840082a8499.jpg" alt="Kleinfeld Bridal" class="thumbnail">
+                        <p>Longtime upscale bridal boutique and star of its own TV show, Say Yes to the Dress.</p>
+                        <nav> <a href="http://www.kleinfeldbridal.com/" class="button small-button" target="_blank">Learn More</a> </nav>
+                     </td>
+                  </tr>
+                  <tr class="point" data-lat="40.7374763" data-lng="-73.988894" data-name="Rothmans" data-address="222 Park Ave S, New York, NY 10003" data-phone="(212) 777-7400">
+                     <td class="title"> <span class="expand-description">Rothmans</span> </td>
+                     <td class="center">(212) 777-7400</td>
+                     <td class="center">0.57</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <img src="/images/cms/cache/100x100/ad/564-ad80b778a2a85a26502f5cf000930a36.jpg" alt="Rothmans" class="thumbnail">
+                        <p>Sprawling stalwart retailer specializing in menswear, from casual to professional, formal & bespoke.</p>
+                        <nav> <a href="http://www.rothmansny.com/" class="button small-button" target="_blank">Learn More</a> </nav>
+                     </td>
+                  </tr>
+                  <tr class="point" data-lat="40.7391483" data-lng="-73.9883143" data-name="Of Mercer" data-address="42 E 21st St, New York, NY 10010" data-phone="(212) 979-2229">
+                     <td class="title"> <span class="expand-description">Of Mercer</span> </td>
+                     <td class="center">(212) 979-2229</td>
+                     <td class="center">0.44</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <img src="/images/cms/cache/100x100/a2/565-a246010833132add20009fd8b0e7ccdc.jpg" alt="Of Mercer" class="thumbnail">
+                        <p>Of Mercer a women's workwear brand, dedicated to outfitting the woman who knows she shouldn't have to sacrifice quality for price or style for an office dress code</p>
+                        <nav> <a href="https://www.ofmercer.com/" class="button small-button" target="_blank">Learn More</a> </nav>
+                     </td>
+                  </tr>
+                  <tr class="point" data-lat="40.7399844" data-lng="-73.9983447" data-name="Barneys New York, Downtown" data-address="101 7th Ave, New York, NY 10011" data-phone="(646) 264-6400">
+                     <td class="title"> <span class="expand-description">Barneys New York, Downtown</span> </td>
+                     <td class="center">(646) 264-6400</td>
+                     <td class="center">0.92</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <img src="/images/cms/cache/100x100/0a/591-0a3069a827ef53da071804c1d83df616.jpg" alt="Barneys New York, Downtown" class="thumbnail">
+                        <p>Hours Mon-Sat: 10 AM - 7 PM Sun: 11 AM - 7 PM</p>
+                        <nav> <a href="http://www.barneys.com/" class="button small-button" target="_blank">Learn More</a> </nav>
+                     </td>
+                  </tr>
+                  <tr class="point" data-lat="40.7421643" data-lng="-73.9898936" data-name="The LEGO Store" data-address="200 5th Ave, New York, NY 10010" data-phone="(212) 255-3217">
+                     <td class="title"> <span class="expand-description">The LEGO Store</span> </td>
+                     <td class="center">(212) 255-3217</td>
+                     <td class="center">0.24</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <img src="/images/cms/cache/100x100/dc/610-dc349da9bde84266668bf581ea27bce1.jpg" alt="The LEGO Store" class="thumbnail">
+                        <p>Retailer showcasing the brand's colorful building sets & bricks, plus figurines & toys.</p>
+                        <nav> <a href="http://stores.lego.com/en-us/stores/us/flatiron-district" class="button small-button" target="_blank">Learn More</a> </nav>
+                     </td>
+                  </tr>
+                  <tr class="point" data-lat="40.7421643" data-lng="-73.9898936" data-name="Marimekko" data-address="200 5th Ave, New York, NY 10010" data-phone="(212) 843-9121">
+                     <td class="title"> <span class="expand-description">Marimekko</span> </td>
+                     <td class="center">(212) 843-9121</td>
+                     <td class="center">0.24</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <img src="/images/cms/cache/100x100/ca/611-caadb55046e25b45e8aefde6841a61f1.jpg" alt="Marimekko" class="thumbnail">
+                        <p>The Marimekko NYC Flagship location of the well-known designer offering colorful apparel & home decor in bold patterns.</p>
+                        <nav> <a href="https://us.marimekko.com/" class="button small-button" target="_blank">Learn More</a> </nav>
+                     </td>
+                  </tr>
+                  <tr class="point" data-lat="40.7411767" data-lng="-73.9902303" data-name="Fujifilm Wonder Photo Shop" data-address="176 5th Ave, New York, NY 10010" data-phone="(929) 239-4262">
+                     <td class="title"> <span class="expand-description">Fujifilm Wonder Photo Shop</span> </td>
+                     <td class="center">(929) 239-4262</td>
+                     <td class="center">0.31</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <img src="/images/cms/cache/100x100/31/700-3179b9a3df0b3ec0f732469cc7db1bb4.jpg" alt="Fujifilm Wonder Photo Shop" class="thumbnail">
+                        <p>Wonder Photo Shop is part retail store, part print center, and part interactive workshop, which also includes a coffee station for shoppers to take a break and enjoy a cup of coffee while browsing the store.</p>
+                        <nav> <a href="http://wonderphotoshopnyc.com/" class="button small-button" target="_blank">Learn More</a> </nav>
+                     </td>
+                  </tr>
+               </table>
+            </article>
+            <article class="category " data-poi-category-index="2" data-poi-category-name="Entertainment">
+               <table>
+                  <tr>
+                     <th>Place Name</th>
+                     <th>Phone</th>
+                     <th>Distance</th>
+                     <th>Show on map</th>
+                  </tr>
+                  <tr class="point" data-lat="40.7401482" data-lng="-73.9868799" data-name="SPiN New York" data-address="48 East 23rd Street, New York, NY, 10010" data-phone="(212) 982-8802">
+                     <td class="title"> <span class="expand-description">SPiN New York</span> </td>
+                     <td class="center">(212) 982-8802</td>
+                     <td class="center">0.34</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <img src="/images/cms/cache/100x100/91/580-917a480527b7c35664d3f062d2f62938.jpg" alt="SPiN New York" class="thumbnail">
+                        <p>Active, modern lounge with 17 Ping-Pong courts, full bar service, dining & live music on weekends.</p>
+                        <nav> <a href="http://newyork.wearespin.com/" class="button small-button" target="_blank">Learn More</a> </nav>
+                     </td>
+                  </tr>
+               </table>
+            </article>
+            <article class="category " data-poi-category-index="3" data-poi-category-name="Culture &amp; Museums">
+               <table>
+                  <tr>
+                     <th>Place Name</th>
+                     <th>Phone</th>
+                     <th>Distance</th>
+                     <th>Show on map</th>
+                  </tr>
+                  <tr class="point" data-lat="40.7440368" data-lng="-73.9873546" data-name="The Museum of Sex" data-address="233 5th Avenue" data-phone="(212) 689-6337">
+                     <td class="title"> <span class="expand-description">The Museum of Sex</span> </td>
+                     <td class="center">(212) 689-6337</td>
+                     <td class="center">0.01</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <img src="/images/cms/cache/100x100/7e/452-7eb6cee15119ac91d8fe4c43d5fbfc67.jpg" alt="The Museum of Sex" class="thumbnail">
+                        <p>Learn about the history, the evolution and the impact of sex in popular culture by experiencing the museum's exhibitions.</p>
+                        <nav> <a href="http://www.museumofsex.com/" class="button small-button" target="_blank">Learn More</a> </nav>
+                     </td>
+                  </tr>
+                  <tr class="point" data-lat="40.7492094" data-lng="-73.9815265" data-name="The Morgan Library &amp; Museum" data-address="225 Madison Avenue, New York, NY 10016" data-phone="(212) 685-0008">
+                     <td class="title"> <span class="expand-description">The Morgan Library & Museum</span> </td>
+                     <td class="center">(212) 685-0008</td>
+                     <td class="center">0.55</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <img src="/images/cms/cache/100x100/2b/449-2b12dad413ffff2b7923f478ef94e088.jpg" alt="The Morgan Library &amp; Museum" class="thumbnail">
+                        <p>The Morgan Library & Museum celebrates creativity and the imagination, with the conviction that meaningful engagement with literature, music, history, and art enriches lives, opens minds, and deepens understanding.</p>
+                        <nav> <a href="http://www.themorgan.org/" class="button small-button" target="_blank">Learn More</a> </nav>
+                     </td>
+                  </tr>
+                  <tr class="point" data-lat="40.7370646" data-lng="-73.9946066" data-name="Tibet House" data-address="22 West 15th Street, New York, NY 10011" data-phone="(212) 807-0563">
+                     <td class="title"> <span class="expand-description">Tibet House</span> </td>
+                     <td class="center">(212) 807-0563</td>
+                     <td class="center">0.69</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <p>The Cultural Center of H.H. the Dalai Lama.</p>
+                        <nav> <a href="http://tibethouse.us/" class="button small-button" target="_blank">Learn More</a> </nav>
+                     </td>
+                  </tr>
+                  <tr class="point" data-lat="40.7466232" data-lng="-73.9938171" data-name="The Museum at FIT" data-address="Seventh Avenue at 27 Street, New York City 10001" data-phone="">
+                     <td class="title"> <span class="expand-description">The Museum at FIT</span> </td>
+                     <td class="center"></td>
+                     <td class="center">0.39</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <img src="/images/cms/cache/100x100/22/455-2292e731503e4da8d571c2636427952b.jpg" alt="The Museum at FIT" class="thumbnail">
+                        <p>The most fashionable museum in New York City.</p>
+                        <nav> <a href="http://www.fitnyc.edu/museum.asp" class="button small-button" target="_blank">Learn More</a> </nav>
+                     </td>
+                  </tr>
+                  <tr class="point" data-lat="40.7474176" data-lng="-74.0052923" data-name="JoAnne Artman Gallery" data-address="511A W 22nd St, New York, NY 10011" data-phone="(949) 510-5481">
+                     <td class="title"> <span class="expand-description">JoAnne Artman Gallery</span> </td>
+                     <td class="center">(949) 510-5481</td>
+                     <td class="center">1.21</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <img src="/images/cms/cache/100x100/f3/592-f354e44764635d51af99dfc615d6dfe1.jpg" alt="JoAnne Artman Gallery" class="thumbnail">
+                        <p>JoAnne Artman's roster of artists are rooted in her obvious passion for the artist's individual voice and mastery of technique. All artists are award-winning, and their works have been shown and collected in museums and private collections in Southern California, around the country and internationally.</p>
+                        <nav> <a href="http://www.joanneartmanagallery.com" class="button small-button" target="_blank">Learn More</a> </nav>
+                     </td>
+                  </tr>
+               </table>
+            </article>
+            <article class="category " data-poi-category-index="4" data-poi-category-name="Outdoor Spaces">
+               <table>
+                  <tr>
+                     <th>Place Name</th>
+                     <th>Phone</th>
+                     <th>Distance</th>
+                     <th>Show on map</th>
+                  </tr>
+                  <tr class="point" data-lat="40.743444" data-lng="-73.9882085" data-name="Madison Square Park" data-address="5th Avenue &amp; 26th Street, New York, NY" data-phone="">
+                     <td class="title"> <span >Madison Square Park</span> </td>
+                     <td class="center"></td>
+                     <td class="center">0.08</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="point" data-lat="40.7388368" data-lng="-73.9831597" data-name="Flatiron Plaza" data-address="E 23rd St, New York, NY 10010" data-phone="(212) 741-2323">
+                     <td class="title"> <span class="expand-description">Flatiron Plaza</span> </td>
+                     <td class="center">(212) 741-2323</td>
+                     <td class="center">0.56</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <img src="/images/cms/cache/100x100/9c/584-9c9212d45d9864e028a0a05c3aa740c2.jpg" alt="Flatiron Plaza" class="thumbnail">
+                        <p>Outdoor space open to the public at 23rd Street and Broadway in front of the Flatiron Building.</p>
+                        <nav> <a href="http://www.flatirondistrict.nyc/" class="button small-button" target="_blank">Learn More</a> </nav>
+                     </td>
+                  </tr>
+                  <tr class="point" data-lat="40.7347947" data-lng="-73.9907782" data-name="Union Square" data-address="East 14th Street, Park Avenue South &amp; Broadway New York, NY 10003" data-phone="">
+                     <td class="title"> <span class="expand-description">Union Square</span> </td>
+                     <td class="center"></td>
+                     <td class="center">0.74</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <img src="/images/cms/cache/100x100/b1/59-b1a4e599c61cda4b84412b2eba9a1477.jpg" alt="Union Square" class="thumbnail">
+                        <p>Union Square is an important and historic intersection and surrounding neighborhood in Manhattan located where Broadway and Fourth Avenue come together.</p>
+                        <nav> <a href="http://unionsquarenyc.org/" class="button small-button" target="_blank">Explore</a> </nav>
+                     </td>
+                  </tr>
+                  <tr class="point" data-lat="40.7322213" data-lng="-73.9986277" data-name="Washington Square Park" data-address="5 Ave, Waverly Pl., W. 4 St. and Macdougal St. Manhattan" data-phone="">
+                     <td class="title"> <span class="expand-description">Washington Square Park</span> </td>
+                     <td class="center"></td>
+                     <td class="center">1.14</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <img src="/images/cms/cache/100x100/b7/586-b76243a1b0a5f0eaee82892a9c5b4a13.jpg" alt="Washington Square Park" class="thumbnail">
+                        <p>Washington Square Park is a 9.75-acre public park in the New York City neighborhood of Greenwich Village, Manhattan.</p>
+                        <nav> <a href="http://www.nycgovparks.org/parks/washington-square-park" class="button small-button" target="_blank">Explore Washington Square Park</a> </nav>
+                     </td>
+                  </tr>
+                  <tr class="point" data-lat="40.7535965" data-lng="-73.9832326" data-name="Bryant Park" data-address="Bryant Park, New York, NY 10018" data-phone="(212) 768-4242">
+                     <td class="title"> <span class="expand-description">Bryant Park</span> </td>
+                     <td class="center">(212) 768-4242</td>
+                     <td class="center">0.82</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <img src="/images/cms/cache/100x100/fa/587-fa9e6e03c3a95d52ff372c75bf397f34.jpg" alt="Bryant Park" class="thumbnail">
+                        <p>Bryant Park is a 9.603-acre privately managed public park located in the New York City borough of Manhattan. It is located between Fifth and Sixth Avenues and between 40th and 42nd Streets in Midtown Manhattan.</p>
+                        <nav> <a href="http://www.bryantpark.org/" class="button small-button" target="_blank">Explore</a> </nav>
+                     </td>
+                  </tr>
+                  <tr class="point" data-lat="40.7711329" data-lng="-73.9741874" data-name="Central Park" data-address="Central Park, New York, NY" data-phone="(212) 310-6600">
+                     <td class="title"> <span class="expand-description">Central Park</span> </td>
+                     <td class="center">(212) 310-6600</td>
+                     <td class="center">2.15</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <img src="/images/cms/cache/100x100/69/588-69c805e45b10a9560001e5cca6276660.jpg" alt="Central Park" class="thumbnail">
+                        <p>Central Park is an urban park in middle-upper Manhattan, within New York City, New York. Central Park is the most visited urban park in the United States as well as one of the most filmed locations in the world.</p>
+                        <nav> <a href="http://www.centralparknyc.org/" class="button small-button" target="_blank">Explore</a> </nav>
+                     </td>
+                  </tr>
+                  <tr class="point" data-lat="40.73749825666" data-lng="-73.985459252918" data-name="Gramercy Park" data-address="Gramercy Park E, New York, NY 10003, USA" data-phone="">
+                     <td class="title"> <span class="expand-description">Gramercy Park</span> </td>
+                     <td class="center"></td>
+                     <td class="center">0.65</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <img src="/images/cms/cache/100x100/af/612-afb8d3469cf634f43eb96e2b76b747a9.jpg" alt="Gramercy Park" class="thumbnail">
+                        <p>The approximately 2-acre park, located in the Gramercy Park Historic District, is one of two private parks in New York. Only people residing around the park who pay an annual fee have a key and the public is not generally allowed in</p>
+                        <nav> <a href="https://en.wikipedia.org/wiki/Gramercy_Park" class="button small-button" target="_blank">Learn More</a> </nav>
+                     </td>
+                  </tr>
+               </table>
+            </article>
+            <article class="category " data-poi-category-index="5" data-poi-category-name="Colleges &amp; Universities">
+               <table>
+                  <tr>
+                     <th>Place Name</th>
+                     <th>Phone</th>
+                     <th>Distance</th>
+                     <th>Show on map</th>
+                  </tr>
+                  <tr class="point" data-lat="40.7295147" data-lng="-73.9971879" data-name="New York University" data-address="70 Washington Square South, New York, NY 10012" data-phone="(212) 998-1212">
+                     <td class="title"> <span class="expand-description">New York University</span> </td>
+                     <td class="center">(212) 998-1212</td>
+                     <td class="center">1.17</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <nav> <a href="http://www.nyu.edu/" class="button small-button" target="_blank">New York University</a> </nav>
+                     </td>
+                  </tr>
+               </table>
+            </article>
+            <article class="category " data-poi-category-index="6" data-poi-category-name="Spas">
+               <table>
+                  <tr>
+                     <th>Place Name</th>
+                     <th>Phone</th>
+                     <th>Distance</th>
+                     <th>Show on map</th>
+                  </tr>
+                  <tr class="point" data-lat="40.7368837" data-lng="-73.9891634" data-name="The Red Door" data-address="200 Park Ave S, New York, NY 10003" data-phone="(212) 388-0222">
+                     <td class="title"> <span class="expand-description">The Red Door</span> </td>
+                     <td class="center">(212) 388-0222</td>
+                     <td class="center">0.63</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <img src="/images/cms/cache/100x100/83/577-839222cd548ae5997b04b73450630f39.png" alt="The Red Door" class="thumbnail">
+                        <p>An urban retreat, The Red Door offers traditional and speed spa and salon services, as well as a beauty bar for experimenting and playing with the latest skincare and makeup products and color trends.</p>
+                        <nav> <a href="http://www.reddoorspas.com/locations/union-square" class="button small-button" target="_blank">Learn More</a> </nav>
+                     </td>
+                  </tr>
+                  <tr class="point" data-lat="40.7268971" data-lng="-73.9933411" data-name="Great Jones Spa" data-address="29 Great Jones St, New York, NY 10012" data-phone="(212) 505-3185">
+                     <td class="title"> <span class="expand-description">Great Jones Spa</span> </td>
+                     <td class="center">(212) 505-3185</td>
+                     <td class="center">1.37</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <img src="/images/cms/cache/100x100/1b/578-1b3dceb77239dd977ae4a0475833bd09.jpg" alt="Great Jones Spa" class="thumbnail">
+                        <p>Mission: Inspire health and happiness through wholeness and balance.</p>
+                        <nav> <a href="http://gjspa.com/" class="button small-button" target="_blank">Learn More</a> </nav>
+                     </td>
+                  </tr>
+               </table>
+            </article>
+            <article class="category " data-poi-category-index="7" data-poi-category-name="Dining">
+               <table>
+                  <tr>
+                     <th>Place Name</th>
+                     <th>Phone</th>
+                     <th>Distance</th>
+                     <th>Show on map</th>
+                  </tr>
+                  <tr class="point" data-lat="40.7415053" data-lng="-73.9866266" data-name="Eleven Madison Park" data-address="11 Madison Avenue, New York, NY 10010" data-phone="(212) 889-0905">
+                     <td class="title"> <span class="expand-description">Eleven Madison Park</span> </td>
+                     <td class="center">(212) 889-0905</td>
+                     <td class="center">0.25</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <img src="/images/cms/cache/100x100/a6/417-a6166b4b505bd99c49ca63c97e35b58c.jpg" alt="Eleven Madison Park" class="thumbnail">
+                        <p>Upscale American tasting menus from chef Daniel Humm served in a high-ceilinged art deco space. The perfect place for special occasions.</p>
+                        <nav> <a href="http://elevenmadisonpark.com/" class="button small-button" target="_blank">Learn More</a> </nav>
+                     </td>
+                  </tr>
+                  <tr class="point" data-lat="40.7383813" data-lng="-73.9884631" data-name="Gramercy Tavern" data-address="42 East 20th Street, New York, NY 10003" data-phone="(212) 477-0777">
+                     <td class="title"> <span class="expand-description">Gramercy Tavern</span> </td>
+                     <td class="center">(212) 477-0777</td>
+                     <td class="center">0.47</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <img src="/images/cms/cache/100x100/ed/416-ed2ae0afb8b2d3c6bee57d6adccaf00e.jpg" alt="Gramercy Tavern" class="thumbnail">
+                        <p>Danny Meyer's Flatiron District tavern with Executive Chef Mike Anthony. Seasonal menu, full bar and prix fixe menu in the dining room. Fresh flowers, a cozy environment and delicious cuisine make for an unforgettable dining experience.</p>
+                        <nav> <a href="http://www.gramercytavern.com/" class="button small-button" target="_blank">Learn More</a> </nav>
+                     </td>
+                  </tr>
+                  <tr class="point" data-lat="40.7408681" data-lng="-73.9879841" data-name="Shake Shack" data-address="23rd St. at Madison Avenue" data-phone="(212) 889-6600">
+                     <td class="title"> <span class="expand-description">Shake Shack</span> </td>
+                     <td class="center">(212) 889-6600</td>
+                     <td class="center">0.26</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <img src="/images/cms/cache/100x100/b2/420-b25a5b2bd1fd7538332a6e6a410ee4a3.jpg" alt="Shake Shack" class="thumbnail">
+                        <p>Shake Shack is a fast casual restaurant chain founded by Danny Meyer. It started out as a food cart inside Madison Square Park in 2000, and its popularity steadily grew. It's arguably the best burger in NYC.</p>
+                        <nav> <a href="https://www.shakeshack.com/location/madison-square-park/" class="button small-button" target="_blank">Learn More</a> </nav>
+                     </td>
+                  </tr>
+                  <tr class="point" data-lat="40.7440833" data-lng="-73.9904798" data-name="Hill Country BBQ" data-address="30 West 26th Street" data-phone="(212) 255-4544">
+                     <td class="title"> <span class="expand-description">Hill Country BBQ</span> </td>
+                     <td class="center">(212) 255-4544</td>
+                     <td class="center">0.2</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <img src="/images/cms/cache/100x100/27/418-270f07594c94fe535cc79aa7cb787db2.jpg" alt="Hill Country BBQ" class="thumbnail">
+                        <p>Hill Country honors the barbecue and live music capital of Texas and takes its "cue" from the legendary meat-markets-turned-barbecue-joints of Central Texas with their distinctive, dry-rub style.</p>
+                        <nav> <a href="http://www.hillcountryny.com/locations" class="button small-button" target="_blank">Learn More</a> </nav>
+                     </td>
+                  </tr>
+                  <tr class="point" data-lat="40.7377811" data-lng="-73.9895639" data-name="ABC Kitchen" data-address="35 East 18th Street, New York, NY 10003" data-phone="(212) 475-5829">
+                     <td class="title"> <span class="expand-description">ABC Kitchen</span> </td>
+                     <td class="center">(212) 475-5829</td>
+                     <td class="center">0.51</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <img src="/images/cms/cache/100x100/fe/421-feda8d540c10bc6199889ad87cec3cfa.jpg" alt="ABC Kitchen" class="thumbnail">
+                        <p>Located in neighboring Union Square, ABC Kitchen and Michelin star Chef Jean-Georges Vongerichten are committed to offering the freshest, safest ingredients, presenting a seasonal menu, that is locally focused and globally artistic, and cultivating a healthy relationship on our tables and for the planet. A great option for exquisite New American cuisine.</p>
+                        <nav> <a href="http://www.abchome.com/eat/abc-kitchen/" class="button small-button" target="_blank">Learn More</a> </nav>
+                     </td>
+                  </tr>
+                  <tr class="point" data-lat="40.7388418" data-lng="-73.9900752" data-name="Barn Joo" data-address="893 Broadway, New York, NY 10003" data-phone="(646) 398-9663">
+                     <td class="title"> <span class="expand-description">Barn Joo</span> </td>
+                     <td class="center">(646) 398-9663</td>
+                     <td class="center">0.41</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <img src="/images/cms/cache/100x100/9a/422-9a889932c20a0f16ec759fc0086a4962.jpg" alt="Barn Joo" class="thumbnail">
+                        <p>Korean-inspired gastropub and lounge. Barn Joo literally means "music with your meal" in Korean, which is fitting because they have the occasional live music with plans for more in the near future. The ambiance is quite special with a motif of heavy hanging ropes that is used throughout the sleek wood-paneled restaurant to symbolize “tying or connecting people together,” says owner Charles Chong.</p>
+                        <nav> <a href="http://www.barnjoo.com/" class="button small-button" target="_blank">Learn More</a> </nav>
+                     </td>
+                  </tr>
+                  <tr class="point" data-lat="40.7387488" data-lng="-73.9927793" data-name="Ootoya" data-address="8 W 18th Street, New York, NY 10011" data-phone="(212) 255-0018">
+                     <td class="title"> <span class="expand-description">Ootoya</span> </td>
+                     <td class="center">(212) 255-0018</td>
+                     <td class="center">0.52</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <img src="/images/cms/cache/100x100/36/423-36675d60f0854fcff00698615e38e439.jpg" alt="Ootoya" class="thumbnail">
+                        <p>Freshness is top priority at this authentic Japanese eatery. Expats flock here to get a taste of home where Ootoya is actually a large chain restaurant. Experience Tokyo right here in NYC.</p>
+                        <nav> <a href="http://ootoya.us/" class="button small-button" target="_blank">Learn More</a> </nav>
+                     </td>
+                  </tr>
+                  <tr class="point" data-lat="40.7421643" data-lng="-73.9898936" data-name="Eataly" data-address="200 Fifth Avenue, New York, NY 10010" data-phone="(212) 229-2560">
+                     <td class="title"> <span class="expand-description">Eataly</span> </td>
+                     <td class="center">(212) 229-2560</td>
+                     <td class="center">0.22</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <img src="/images/cms/cache/100x100/bc/433-bc62a0e2b6b31a82c40968901758bea1.jpg" alt="Eataly" class="thumbnail">
+                        <p>Eataly is the largest Italian marketplace in the world, comprising a variety of restaurants, food and beverage counters, bakery, retail items, and a cooking school.</p>
+                        <nav> <a href="http://www.eataly.com/us_en/stores/new-york/" class="button small-button" target="_blank">Learn More</a> </nav>
+                     </td>
+                  </tr>
+                  <tr class="point" data-lat="40.7417983" data-lng="-73.9847793" data-name="Upland" data-address="345 Park Avenue South, New York, NY 10010" data-phone="(212) 686-1006">
+                     <td class="title"> <span class="expand-description">Upland</span> </td>
+                     <td class="center">(212) 686-1006</td>
+                     <td class="center">0.23</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <img src="/images/cms/cache/100x100/67/454-676d679d97faf61c1a5009c66c5cf561.jpg" alt="Upland" class="thumbnail">
+                        <p>Spacious, casually chic brasserie with hearty dishes featuring Californian & Italian influences.</p>
+                        <nav> <a href="http://uplandnyc.com/" class="button small-button" target="_blank">Learn More</a> </nav>
+                     </td>
+                  </tr>
+                  <tr class="point" data-lat="40.7433163" data-lng="-73.9869907" data-name="Black Barn" data-address="19 East 26th Street New York, NY 10010" data-phone="(212) 265-5959">
+                     <td class="title"> <span class="expand-description">Black Barn</span> </td>
+                     <td class="center">(212) 265-5959</td>
+                     <td class="center">0.15</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <img src="/images/cms/cache/100x100/9e/506-9e45eb8f7489ba5953c2900d5b10e56a.png" alt="Black Barn" class="thumbnail">
+                        <p>Childhood friends, John Doherty and Tom Struzzieri, took separate career paths after high school. 30 years later with seasoned experience in the culinary and equestrian fields respectively, they set out to open a restaurant that combined their passions and expertise in the city they love most. After John spent a weekend at friend and acclaimed designer Mark Zeff’s BLACKBARN home in the Hamptons, the anchor of Mark’s eponymous design brand, John found that the aesthetic matched the spirit of his restaurant vision. Now, co-owners John and Tom, in collaboration with the multi-layered BLACKBARN brand, present Black Barn Restaurant to New York City, where seasonal, rustic fare meets a modern farmhouse atmosphere.</p>
+                        <nav> <a href="http://blackbarnrestaurant.com/" class="button small-button" target="_blank">Black Barn Restaurant</a> </nav>
+                     </td>
+                  </tr>
+                  <tr class="point" data-lat="40.7385919" data-lng="-73.9888939" data-name="Le Coq Rico" data-address="30 E 20th St, New York, NY 10003" data-phone="(212) 267-7426">
+                     <td class="title"> <span class="expand-description">Le Coq Rico</span> </td>
+                     <td class="center">(212) 267-7426</td>
+                     <td class="center">0.46</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <img src="/images/cms/cache/100x100/40/562-40c4e62e6b0a08fc942df210d9a2b925.jpg" alt="Le Coq Rico" class="thumbnail">
+                        <p>Michelin star Chef Antoine Westermann is behind this capacious poultry bistro with a beak-to-tail philosophy and an original location in Paris.</p>
+                        <nav> <a href="http://www.lecoqriconyc.com/" class="button small-button" target="_blank">Learn More</a> </nav>
+                     </td>
+                  </tr>
+                  <tr class="point" data-lat="40.7392836" data-lng="-73.9887809" data-name="Harding&#039;s" data-address="32 E 21st St, New York, NY 10010" data-phone="(212) 600-2105">
+                     <td class="title"> <span class="expand-description">Harding's</span> </td>
+                     <td class="center">(212) 600-2105</td>
+                     <td class="center">0.41</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <img src="/images/cms/cache/100x100/50/566-50e5df01cb2fdc8f7ee0088380eae4ba.jpg" alt="Harding&#039;s" class="thumbnail">
+                        <p>Upscale American fare & classic cocktails served in sophisticated, Americana-decked environs.</p>
+                        <nav> <a href="http://www.hardingsnyc.com/" class="button small-button" target="_blank">Learn More</a> </nav>
+                     </td>
+                  </tr>
+                  <tr class="point" data-lat="40.7400781" data-lng="-73.9887489" data-name="Almond" data-address="12 E 22nd St, New York, NY 10010" data-phone="(212) 228-7557">
+                     <td class="title"> <span class="expand-description">Almond</span> </td>
+                     <td class="center">(212) 228-7557</td>
+                     <td class="center">0.35</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <img src="/images/cms/cache/100x100/e6/567-e620840a51e43b36f18787c8ebb053ea.jpg" alt="Almond" class="thumbnail">
+                        <p>This lively bistro serving French comfort food in a rustic setting is popular for brunch.</p>
+                        <nav> <a href="http://almondrestaurant.com/" class="button small-button" target="_blank">Learn More</a> </nav>
+                     </td>
+                  </tr>
+                  <tr class="point" data-lat="40.7388488" data-lng="-73.9895118" data-name="Craft Bar" data-address="900 Broadway, New York, NY 10003" data-phone="(212) 461-4300">
+                     <td class="title"> <span class="expand-description">Craft Bar</span> </td>
+                     <td class="center">(212) 461-4300</td>
+                     <td class="center">0.43</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <img src="/images/cms/cache/100x100/62/568-629d6d2554e72ab85c6ad78c2640c271.jpg" alt="Craft Bar" class="thumbnail">
+                        <p>More-casual offshoot of Craft offering chef Tom Colicchio's New American eats in a low-key space.</p>
+                        <nav> <a href="http://www.craftrestaurantsinc.com/craftbar-new-york/" class="button small-button" target="_blank">Learn More</a> </nav>
+                     </td>
+                  </tr>
+                  <tr class="point" data-lat="40.7379803" data-lng="-73.9892841" data-name="ABC Cocina" data-address="38 East 19th St, New York, NY 10003" data-phone="(212) 677-2233">
+                     <td class="title"> <span class="expand-description">ABC Cocina</span> </td>
+                     <td class="center">(212) 677-2233</td>
+                     <td class="center">0.5</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <img src="/images/cms/cache/100x100/88/569-88149dda50aee1b30c647077cf8fe3ce.jpg" alt="ABC Cocina" class="thumbnail">
+                        <p>Jean-Georges Vongerichten's upscale farm-fresh eatery serves Latin American fusion in a glam space.</p>
+                        <nav> <a href="http://www.jean-georges.com/restaurants/united-states/new-york/abc-cocina/" class="button small-button" target="_blank">Learn More</a> </nav>
+                     </td>
+                  </tr>
+                  <tr class="point" data-lat="40.7371329" data-lng="-73.9879502" data-name="Florian" data-address="225 Park Ave S, New York, NY 10003" data-phone="(212) 869-8800">
+                     <td class="title"> <span class="expand-description">Florian</span> </td>
+                     <td class="center">(212) 869-8800</td>
+                     <td class="center">0.62</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <img src="/images/cms/cache/100x100/da/570-da0043d41fd8345dfa1761b43a1ed7d7.jpg" alt="Florian" class="thumbnail">
+                        <p>Spacious, upscale trattoria with modern Italian dishes including pizza & a mozzarella bar.</p>
+                        <nav> <a href="http://www.floriannyc.com/" class="button small-button" target="_blank">Learn More</a> </nav>
+                     </td>
+                  </tr>
+                  <tr class="point" data-lat="40.7421743" data-lng="-73.9838006" data-name="Blue Smoke" data-address="116 E 27th St, New York, NY 10016" data-phone="(212) 447-7733">
+                     <td class="title"> <span class="expand-description">Blue Smoke</span> </td>
+                     <td class="center">(212) 447-7733</td>
+                     <td class="center">0.22</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <img src="/images/cms/cache/100x100/5f/571-5fffbde33a56d8887e44b8eebaa2a922.jpg" alt="Blue Smoke" class="thumbnail">
+                        <p>Danny Meyer's BBQ joint offers a deep beer & bourbon list plus a basement live jazz venue.</p>
+                        <nav> <a href="http://www.bluesmoke.com/" class="button small-button" target="_blank">Learn More</a> </nav>
+                     </td>
+                  </tr>
+                  <tr class="point" data-lat="40.7364457" data-lng="-73.9921178" data-name="15 East" data-address="15 E 15th St, New York, NY 10003" data-phone="(212) 647-0015">
+                     <td class="title"> <span class="expand-description">15 East</span> </td>
+                     <td class="center">(212) 647-0015</td>
+                     <td class="center">0.68</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <img src="/images/cms/cache/100x100/46/572-46d0538f2788048ec85c78c4d2c7a5bd.jpg" alt="15 East" class="thumbnail">
+                        <p>Minimalist Japanese spot preparing creative sushi & fish plus cooked dishes in a refined atmosphere.</p>
+                        <nav> <a href="http://15eastrestaurant.com/" class="button small-button" target="_blank">Learn More</a> </nav>
+                     </td>
+                  </tr>
+                  <tr class="point" data-lat="40.7361284" data-lng="-73.9877365" data-name="The House" data-address="121 E 17th St, New York, NY 10003" data-phone="(212) 353-2121">
+                     <td class="title"> <span class="expand-description">The House</span> </td>
+                     <td class="center">(212) 353-2121</td>
+                     <td class="center">0.7</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <img src="/images/cms/cache/100x100/06/573-063aeb5846cc393edd310deb09eb3b86.jpg" alt="The House" class="thumbnail">
+                        <p>Upscale New American restaurant spread out over 3 elegant floors of a restored 1854 carriage house.</p>
+                        <nav> <a href="http://hospitalityholdings.com/#/establishments/the_house" class="button small-button" target="_blank">Learn More</a> </nav>
+                     </td>
+                  </tr>
+                  <tr class="point" data-lat="40.7309396" data-lng="-73.9902235" data-name="Ippudo" data-address="65 4th Ave, New York, NY 10003" data-phone="(212) 388-0088">
+                     <td class="title"> <span class="expand-description">Ippudo</span> </td>
+                     <td class="center">(212) 388-0088</td>
+                     <td class="center">1.03</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <img src="/images/cms/cache/100x100/89/574-8943db7905f95e4aaa0f3b6adac7c70c.jpg" alt="Ippudo" class="thumbnail">
+                        <p>Ramen dishes & pork buns are the lures at this popular East Village Japanese eatery.</p>
+                        <nav> <a href="http://www.ippudony.com/" class="button small-button" target="_blank">Learn More</a> </nav>
+                     </td>
+                  </tr>
+                  <tr class="point" data-lat="40.7358936" data-lng="-73.9871361" data-name="Casa Mano" data-address="52 Irving Pl, New York, NY 10003" data-phone="(212) 253-2773">
+                     <td class="title"> <span class="expand-description">Casa Mano</span> </td>
+                     <td class="center">(212) 253-2773</td>
+                     <td class="center">0.74</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <img src="/images/cms/cache/100x100/1b/575-1b4e8d31827e6e174aed9c4c45cebca7.jpg" alt="Casa Mano" class="thumbnail">
+                        <p>Small-bite fans gather at this intimate Gramercy nook for upscale Spanish dishes & a deep wine list.</p>
+                        <nav> <a href="http://casamononyc.com/" class="button small-button" target="_blank">Learn More</a> </nav>
+                     </td>
+                  </tr>
+                  <tr class="point" data-lat="40.7358702" data-lng="-73.9870318" data-name="Bar Jamón" data-address="125 E 17th St, New York, NY 10003" data-phone="(212) 253-2773">
+                     <td class="title"> <span class="expand-description">Bar Jamón</span> </td>
+                     <td class="center">(212) 253-2773</td>
+                     <td class="center">0.75</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <img src="/images/cms/cache/100x100/62/568-629d6d2554e72ab85c6ad78c2640c271.jpg" alt="Bar Jamón" class="thumbnail">
+                        <p>Mario Batali's small, upscale Spanish spot features an extensive wine list & cold nibbles.</p>
+                        <nav> <a href="http://casamononyc.com/" class="button small-button" target="_blank">Learn More</a> </nav>
+                     </td>
+                  </tr>
+                  <tr class="point" data-lat="40.7473402" data-lng="-73.9864501" data-name="miss KOREA BBQ" data-address="10 W 32nd St, New York, NY 10001" data-phone="(212) 594-4963">
+                     <td class="title"> <span class="expand-description">miss KOREA BBQ</span> </td>
+                     <td class="center">(212) 594-4963</td>
+                     <td class="center">0.32</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <img src="/images/cms/cache/100x100/f6/579-f6bf12bef429365e2ab15927928c5171.jpg" alt="miss KOREA BBQ" class="thumbnail">
+                        <p>Chic, zen-like Koreatown restaurant for barbecue, bulgogi and hot pots.</p>
+                        <nav> <a href="http://www.misskoreabbq.com/best_korean_bbq_restaurant_nyc/" class="button small-button" target="_blank">Learn More</a> </nav>
+                     </td>
+                  </tr>
+                  <tr class="point" data-lat="40.7395986" data-lng="-73.9883646" data-name="Cosme" data-address="35 E 21st St, New York, NY 10010" data-phone="(212) 913-9659">
+                     <td class="title"> <span class="expand-description">Cosme</span> </td>
+                     <td class="center">(212) 913-9659</td>
+                     <td class="center">0.42</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <img src="/images/cms/cache/100x100/31/581-316ba1606ba804113ab410a323d9ff5c.jpg" alt="Cosme" class="thumbnail">
+                        <p>Mexican share plates made with local ingredients & tequila & mezcal in sleek digs with a big bar.</p>
+                        <nav> <a href="http://cosmenyc.com/" class="button small-button" target="_blank">Learn More</a> </nav>
+                     </td>
+                  </tr>
+                  <tr class="point" data-lat="40.7323204" data-lng="-73.9992651" data-name="Babbo" data-address="110 Waverly Pl, New York, NY 10011" data-phone="(212) 777-0303">
+                     <td class="title"> <span class="expand-description">Babbo</span> </td>
+                     <td class="center">(212) 777-0303</td>
+                     <td class="center">1.18</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <img src="/images/cms/cache/100x100/f3/582-f3eedb3e7a8655118b8bac9f13703c64.jpg" alt="Babbo" class="thumbnail">
+                        <p>Buzzing carriage house featuring the high-end Italian fare of prestigious chef Mario Batali.</p>
+                        <nav> <a href="http://www.babbonyc.com/" class="button small-button" target="_blank">Learn More</a> </nav>
+                     </td>
+                  </tr>
+                  <tr class="point" data-lat="40.7410254" data-lng="-73.9935754" data-name="Jue Lan Club" data-address="49 W 20th St, New York, NY 10011" data-phone="(646) 524-7409">
+                     <td class="title"> <span class="expand-description">Jue Lan Club</span> </td>
+                     <td class="center">(646) 524-7409</td>
+                     <td class="center">0.56</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <img src="/images/cms/cache/100x100/c5/590-c5487616d2d1fd4eff36468f5a524479.jpg" alt="Jue Lan Club" class="thumbnail">
+                        <p>Glitzy restaurant in the former Limelight space offering modern Chinese fare in a multiroom setting.</p>
+                        <nav> <a href="http://juelanclub.com/" class="button small-button" target="_blank">Learn More</a> </nav>
+                     </td>
+                  </tr>
+                  <tr class="point" data-lat="40.7399844" data-lng="-73.9983447" data-name="Freds at Barneys New York, Downtown" data-address="101 7th Avenue New York, NY 10011" data-phone="(646) 264-6400">
+                     <td class="title"> <span class="expand-description">Freds at Barneys New York, Downtown</span> </td>
+                     <td class="center">(646) 264-6400</td>
+                     <td class="center">0.92</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <img src="/images/cms/cache/100x100/0a/591-0a3069a827ef53da071804c1d83df616.jpg" alt="Freds at Barneys New York, Downtown" class="thumbnail">
+                        <p>The Barneys iconic restaurant, famous french fries and all, is now open for lunch and weekend brunch in our new downtown flagship. Dinner and cocktail service coming soon. Reservations recommended.</p>
+                        <nav> <a href="http://bit.ly/22lirlp" class="button small-button" target="_blank">Menu</a> </nav>
+                     </td>
+                  </tr>
+                  <tr class="point" data-lat="40.7447043" data-lng="-73.9877913" data-name="TEISUI" data-address="246 5th Ave, New York, NY 10001" data-phone="(917) 388-3596">
+                     <td class="title"> <span class="expand-description">TEISUI</span> </td>
+                     <td class="center">(917) 388-3596</td>
+                     <td class="center">0.1</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <img src="/images/cms/cache/100x100/1c/594-1c375d2b474a9b08b8721149d5a1ab5c.jpg" alt="TEISUI" class="thumbnail">
+                        <p>The first Ryokan-style Japanese restaurant in the country just arrived in NoMad, with a 10-course tasting menu and an evocative modern interior.</p>
+                        <nav> <a href="http://teisui.nyc/" class="button small-button" target="_blank">Learn More</a> </nav>
+                     </td>
+                  </tr>
+                  <tr class="point" data-lat="40.7483005" data-lng="-73.990655" data-name="Friedman&#039;s" data-address="132 W 31st St, New York, NY 10001" data-phone="(212) 971-9400">
+                     <td class="title"> <span class="expand-description">Friedman's</span> </td>
+                     <td class="center">(212) 971-9400</td>
+                     <td class="center">0.45</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <img src="/images/cms/cache/100x100/55/616-5586d11782f3574a1e26b448e350e805.jpg" alt="Friedman&#039;s" class="thumbnail">
+                        <p>Contemporary spot specializing in seasonal, locally sourced & mostly gluten-free comfort classics.</p>
+                        <nav> <a href="http://www.friedmansrestaurant.com/" class="button small-button" target="_blank">Learn More</a> </nav>
+                     </td>
+                  </tr>
+                  <tr class="point" data-lat="40.7436848" data-lng="-73.9814581" data-name="Penelope" data-address="159 Lexington Ave, New York, NY 10016" data-phone="(212) 481-3800">
+                     <td class="title"> <span class="expand-description">Penelope</span> </td>
+                     <td class="center">(212) 481-3800</td>
+                     <td class="center">0.42</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <img src="/images/cms/cache/100x100/60/617-601cc1eb8391c4e1c874e0d8f578b492.jpg" alt="Penelope" class="thumbnail">
+                        <p>Penelope is a café, wine bar and bakery that opened its doors in the summer of 2003.</p>
+                        <nav> <a href="http://www.penelopenyc.com/index.html" class="button small-button" target="_blank">Learn More</a> </nav>
+                     </td>
+                  </tr>
+                  <tr class="point" data-lat="40.7443485" data-lng="-73.9988079" data-name="Momofuku Nishi" data-address="232 Eighth Avenue, New York, NY 10011" data-phone="(646) 518-1919">
+                     <td class="title"> <span class="expand-description">Momofuku Nishi</span> </td>
+                     <td class="center">(646) 518-1919</td>
+                     <td class="center">0.81</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <img src="/images/cms/cache/100x100/99/618-9929c7d5afcd7abf6e6547840923b4e2.jpg" alt="Momofuku Nishi" class="thumbnail">
+                        <p>By David Chang, this eatery approaches Italian cuisine through Korean & other Asian cooking styles.</p>
+                        <nav> <a href="https://nishi.momofuku.com/" class="button small-button" target="_blank">Learn More</a> </nav>
+                     </td>
+                  </tr>
+                  <tr class="point" data-lat="40.7347041" data-lng="-73.9985537" data-name="Morimoto" data-address="88 W 10th Ave, New York, NY 10011" data-phone="212-989-8883">
+                     <td class="title"> <span class="expand-description">Morimoto</span> </td>
+                     <td class="center">212-989-8883</td>
+                     <td class="center">1.06</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <img src="/images/cms/cache/100x100/2d/648-2d4ddee2d4b4608612c9dcfc10096048.jpg" alt="Morimoto" class="thumbnail">
+                        <p>Sleek, spaceshiplike restaurant & lounge serving Masaharu Morimoto's Japanese cuisine.</p>
+                        <nav> <a href="http://www.morimotonyc.com/" class="button small-button" target="_blank">Learn More</a> </nav>
+                     </td>
+                  </tr>
+                  <tr class="point" data-lat="40.7447504" data-lng="-73.9877156" data-name="PN Wood Fired Pizza" data-address="2 W 28th St, New York, NY 10001" data-phone="(646) 964-4834">
+                     <td class="title"> <span class="expand-description">PN Wood Fired Pizza</span> </td>
+                     <td class="center">(646) 964-4834</td>
+                     <td class="center">0.1</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <img src="/images/cms/cache/100x100/a0/653-a0d19e8bc0498b09ac8eca6cfa992911.jpg" alt="PN Wood Fired Pizza" class="thumbnail">
+                        <p>Joining a new group of restaurants opening in NoMad is PN Wood Fired Pizza, an Italian pizza restaurant. The initials "PN" stand for Pecore Nere (or "black sheep" in Italian). Their name is a signal that they do things differently--in addition to a choice of toppings, diners can choose from eight types of pizza dough!</p>
+                        <nav> <a href="http://www.yelp.com/biz/pn-wood-fired-pizza-new-york" class="button small-button" target="_blank">Learn More</a> </nav>
+                     </td>
+                  </tr>
+                  <tr class="point" data-lat="40.744737" data-lng="-73.988034" data-name="Ulivo" data-address="4 W 28th St, New York, NY 10001" data-phone="(212) 684-8000">
+                     <td class="title"> <span class="expand-description">Ulivo</span> </td>
+                     <td class="center">(212) 684-8000</td>
+                     <td class="center">0.11</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <p>Trattoria serving housemade pastas & wood-fired dishes, plus Italian-accented cocktails & wines.</p>
+                        <nav> <a href="http://www.ulivonyc.com/" class="button small-button" target="_blank">Learn More</a> </nav>
+                     </td>
+                  </tr>
+                  <tr class="point" data-lat="40.7439358" data-lng="-73.9886687" data-name="The Little Beet" data-address="1140 Broadway, New York, NY 10001" data-phone="212-367-8015">
+                     <td class="title"> <span class="expand-description">The Little Beet</span> </td>
+                     <td class="center">212-367-8015</td>
+                     <td class="center">0.13</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <img src="/images/cms/cache/100x100/a2/654-a217dd3da0aa4dd6e947122ff2e8616d.jpg" alt="The Little Beet" class="thumbnail">
+                        <p>Modern counter serve offering cold-pressed juices plus veggie-focused gluten-free fare & sweets.</p>
+                        <nav> <a href="https://www.thelittlebeet.com/" class="button small-button" target="_blank">Learn More</a> </nav>
+                     </td>
+                  </tr>
+                  <tr class="point" data-lat="40.7288849" data-lng="-74.0018619" data-name="Dante" data-address="79-81 Macdougal St, New York, NY 10012" data-phone="(212) 982-5275">
+                     <td class="title"> <span class="expand-description">Dante</span> </td>
+                     <td class="center">(212) 982-5275</td>
+                     <td class="center">1.4</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <p>Legendary circa-1915 cafe serving small plates & cocktails in an updated historic setting.</p>
+                        <nav> <a href="http://www.dante-nyc.com/" class="button small-button" target="_blank">Learn More</a> </nav>
+                     </td>
+                  </tr>
+                  <tr class="point" data-lat="40.7419147" data-lng="-73.993032" data-name="Bite" data-address="62 West 22nd Street" data-phone="(646) 649-2768">
+                     <td class="title"> <span class="expand-description">Bite</span> </td>
+                     <td class="center">(646) 649-2768</td>
+                     <td class="center">0.46</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <img src="/images/cms/cache/100x100/6e/696-6e0450ccb6111280e886024792094fe7.jpg" alt="Bite" class="thumbnail">
+                        <p>Bite is owned by Ami Melamed, a New Yorker who focuses on offering simple, organic food at affordable prices for meat eaters, vegetarians, and those gluten-free alike.</p>
+                        <nav> <a href="http://www.bitenyc.com/" class="button small-button" target="_blank">Learn More</a> </nav>
+                     </td>
+                  </tr>
+                  <tr class="point" data-lat="40.7436627" data-lng="-73.9845373" data-name="Atoboy NYC" data-address="43 E 28th St, New York, NY 10016" data-phone="(646) 476-7217">
+                     <td class="title"> <span class="expand-description">Atoboy NYC</span> </td>
+                     <td class="center">(646) 476-7217</td>
+                     <td class="center">0.18</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <img src="/images/cms/cache/100x100/e7/698-e742d3c3ad1eb3d22dfb683683aff547.jpg" alt="Atoboy NYC" class="thumbnail">
+                        <p>ATOBOY is a restaurant by chef Junghyun Park, Manager Ellia Park, and HAND Hospitality. The unique tasting menu offers diners their choice of rice (traditional or seasonal varieties), and three banchan style dishes, which are encouraged to be shared with the entire table.</p>
+                        <nav> <a href="http://atoboynyc.com/#atoboynyc" class="button small-button" target="_blank">Learn More</a> </nav>
+                     </td>
+                  </tr>
+                  <tr class="point" data-lat="40.7433741" data-lng="-73.9912968" data-name="Latin Beet Kitchen" data-address="43 W 24th St, New York, NY 10010" data-phone="(212) 929-1200">
+                     <td class="title"> <span class="expand-description">Latin Beet Kitchen</span> </td>
+                     <td class="center">(212) 929-1200</td>
+                     <td class="center">0.34</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <img src="/images/cms/cache/100x100/73/699-73436558b366cf38eb73f3e13cddaccb.jpg" alt="Latin Beet Kitchen" class="thumbnail">
+                        <p>A new healthy, Latin inspired eatery serving breakfast and lunch on-the-go using only high quality organic, gluten-free, and non-GMO ingredients.</p>
+                        <nav> <a href="http://latinbeet.com/" class="button small-button" target="_blank">Learn More</a> </nav>
+                     </td>
+                  </tr>
+                  <tr class="point" data-lat="40.7445059" data-lng="-73.9882462" data-name="Pondicheri" data-address="15 W 27th St, New York, NY 10001" data-phone="(646) 878-4375">
+                     <td class="title"> <span class="expand-description">Pondicheri</span> </td>
+                     <td class="center">(646) 878-4375</td>
+                     <td class="center">0.08</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <img src="/images/cms/cache/100x100/55/701-55af1c2af5fbb106b7b1933705a88a74.jpg" alt="Pondicheri" class="thumbnail">
+                        <p>Polished spot for Indian food from different regions, with counter-order service during the day.</p>
+                        <nav> <a href="http://www.pondichericafe.com/" class="button small-button" target="_blank">Learn More</a> </nav>
+                     </td>
+                  </tr>
+                  <tr class="point" data-lat="40.7384441" data-lng="-73.9886118" data-name="Casa Neta" data-address="40 E 20th Street, New York, NY 10003" data-phone="(212) 529-7870">
+                     <td class="title"> <span class="expand-description">Casa Neta</span> </td>
+                     <td class="center">(212) 529-7870</td>
+                     <td class="center">0.48</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <img src="/images/cms/cache/100x100/b3/702-b3dc8a0382a236bba5ea40f88914441a.png" alt="Casa Neta" class="thumbnail">
+                        <p>Mezcaleria - Tequileria - Authentic Mexican Food</p>
+                        <nav> <a href="http://www.casanetanyc.com/" class="button small-button" target="_blank">Learn More</a> </nav>
+                     </td>
+                  </tr>
+                  <tr class="point" data-lat="40.7429807" data-lng="-73.9856404" data-name="Tarallucci e Vino" data-address="44 E. 28th Street, New York, NY 10010" data-phone="(212) 779-1100">
+                     <td class="title"> <span class="expand-description">Tarallucci e Vino</span> </td>
+                     <td class="center">(212) 779-1100</td>
+                     <td class="center">0.11</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <img src="/images/cms/cache/100x100/e9/713-e98ddd12fcbe5a282a7f1592316172b1.jpg" alt="Tarallucci e Vino" class="thumbnail">
+                        <p>Espresso drinks & wines by the glass go with Italian small plates & baked goods at this local cafe.</p>
+                        <nav> <a href="http://www.taralluccievino.net/#home01" class="button small-button" target="_blank">Learn More</a> </nav>
+                     </td>
+                  </tr>
+                  <tr class="point" data-lat="40.7337718" data-lng="-73.9896361" data-name="Cava Grill" data-address="143 4th Ave, New York, NY 10003" data-phone="(646) 416-6440">
+                     <td class="title"> <span class="expand-description">Cava Grill</span> </td>
+                     <td class="center">(646) 416-6440</td>
+                     <td class="center">0.84</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <img src="/images/cms/cache/100x100/a2/714-a2d349aed750892d21d9b07e9d8775fe.jpg" alt="Cava Grill" class="thumbnail">
+                        <p>Cava Grill celebrates the flavors of traditional Greek and Mediterranean cooking in a casual modern setting.</p>
+                        <nav> <a href="http://cavagrill.com/" class="button small-button" target="_blank">Learn More</a> </nav>
+                     </td>
+                  </tr>
+                  <tr class="point" data-lat="40.7454144" data-lng="-73.9895813" data-name="Pergola Restaurant" data-address="36 W 28th St, New York, NY 10001" data-phone="(212) 679-4842">
+                     <td class="title"> <span class="expand-description">Pergola Restaurant</span> </td>
+                     <td class="center">(212) 679-4842</td>
+                     <td class="center">0.21</td>
+                     <td class="center"> <button class="show-on-map">Show on map</button> </td>
+                  </tr>
+                  <tr class="description">
+                     <td colspan="5">
+                        <img src="/images/cms/cache/100x100/12/735-125d76faae5f27ab234297d538a6828e.jpg" alt="Pergola Restaurant" class="thumbnail">
+                        <p>Bilevel bistro in a former flower shop offering organic Mediterranean-inspired fare & a hookah menu.</p>
+                        <nav> <a href="http://www.pergolanewyork.com/" class="button small-button" target="_blank">Learn More</a> </nav>
+                     </td>
+                  </tr>
+               </table>
+            </article>
+         </div>
+         <div class="poi-maps-container">
+            <div class="poi-map-canvas visible" data-poi-category-index="0" data-poi-category-name="Bars &amp; Lounges"></div>
+            <div class="poi-map-canvas " data-poi-category-index="1" data-poi-category-name="Shopping"></div>
+            <div class="poi-map-canvas " data-poi-category-index="2" data-poi-category-name="Entertainment"></div>
+            <div class="poi-map-canvas " data-poi-category-index="3" data-poi-category-name="Culture &amp; Museums"></div>
+            <div class="poi-map-canvas " data-poi-category-index="4" data-poi-category-name="Outdoor Spaces"></div>
+            <div class="poi-map-canvas " data-poi-category-index="5" data-poi-category-name="Colleges &amp; Universities"></div>
+            <div class="poi-map-canvas " data-poi-category-index="6" data-poi-category-name="Spas"></div>
+            <div class="poi-map-canvas " data-poi-category-index="7" data-poi-category-name="Dining"></div>
+         </div>
+         <div class="hotels">
+            <dl class="hotel" data-lat="40.744023845672835" data-lng="-73.98695928154524">
+               <dt class="title">The Evelyn</dt>
+               <dd> <span class="address"> 7 East 27th Street, NY, 10016, USA </span> <br> <span class="phone">Phone: 855-468-3501</span> </dd>
+            </dl>
+         </div>
+      </section>
+      {% regionblock  home_testimonials_content %}
+      <div class="testimonials-wrap">
+         <div id="testimonials" class="wrapper container">
+         <div class="row ">
+        <div class="col-sm-12">
+            <h2><a href="/reviews">Testimonials</a></h2>
+            <div class="slideshow">
+               <article data-page-index="0">
+                  <p>We stayed at The Evelyn for three nights in December right before Christmas. Overall, the look and feel of this boutique hotel is quite quaint and charming. The location is fantastic...a 15 minute walk to Times Square and a 5 minute walk to Eataly.</p>
+                  <span class="tauthor">- Folesha</span>
+               </article>
+               <article data-page-index="1">
+                  <p>Great rooms - I stayed twice. Wonderful bed. Sparkling clean. Super linens. Wonderful location -- near restaurants, coffee and transportation. Hotel itself is lovely. Speedy and free wifi, nicely positioned outlets near bed. Fast registration and departure.&nbsp;</p>
+                  <span class="tauthor">- Anisbel</span>
+               </article>
+            </div>
+             </div>
+         </div>
+         </div>
+      </div>
+      {% endregionblock %}
+

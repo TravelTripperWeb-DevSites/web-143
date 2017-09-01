@@ -1,0 +1,217 @@
+{
+  "mainmenu": [{
+      "name": "Our Hotel",
+      "url": "/ourhotel/",
+      "parent": "ourhotel",
+      "dropdown": "yes",
+      "drop-links": [{
+          "name": "Location",
+          "url": "/ourhotel/location/",
+          "parent": "ourhotel",
+          "dropdown": "no"
+        },
+        {
+          "name": "Amenities",
+          "url": "/ourhotel/amenities/",
+          "parent": "ourhotel",
+          "dropdown": "no"
+        },
+        {
+          "name": "Ask Evelyn Anything!",
+          "url": "/ourhotel/ask-evelyn-anything/",
+          "parent": "ourhotel",
+          "dropdown": "no"
+        },
+        {
+          "name": "History",
+          "url": "/ourhotel/history/",
+          "parent": "ourhotel",
+          "dropdown": "no"
+        },
+        {
+          "name": "Press Room",
+          "url": "/press/",
+          "parent": "ourhotel",
+          "dropdown": "no"
+        },
+        {
+          "name": "Announcements",
+          "url": "/ourhotel/announcements/",
+          "parent": "ourhotel",
+          "dropdown": "no"
+        },
+        {
+          "name": "Events",
+          "url": "/events/",
+          "parent": "ourhotel",
+          "dropdown": "no"
+        }
+      ]
+    },
+    {
+      "name": "Accommodations",
+      "url": "/accommodations/",
+      "parent": "accommodations",
+      "dropdown": "yes",
+      "drop-links": [{
+        "name": "Amenities",
+        "url": "/ourhotel/amenities/",
+        "parent": "ourhotel",
+        "dropdown": "no"
+      }]
+    },
+    {
+      "name": "Dining",
+      "url": "/dining/",
+      "parent": "dining",
+      "dropdown": "yes",
+      "drop-links": [{
+          "name": "Tarallucci e Vino-Nomad Restaurant",
+          "url": "/tarallucci-e-vino/",
+          "parent": "dining",
+          "dropdown": "no"
+        },
+        {
+          "name": "Triumph Restaurants",
+          "url": "/triumph-restaurants/",
+          "parent": "triumph",
+          "dropdown": "no"
+        }
+      ]
+    },
+    {
+      "name": "Business Travel",
+      "url": "/businesstravel/",
+      "parent": "businesstravel",
+      "dropdown": "yes",
+      "drop-links": [{
+          "name": "Corporate Rate Package",
+          "url": "/businesstravel/corp-rate-package/",
+          "parent": "businesstravel",
+          "dropdown": "no"
+        },
+        {
+          "name": "Area Businesses",
+          "url": "/businesstravel/areabusinesses/",
+          "parent": "businesstravel",
+          "dropdown": "no"
+        },
+        {
+          "name": "Group Travel Request",
+          "url": "/businesstravel/grouptravel/",
+          "parent": "businesstravel",
+          "dropdown": "no"
+        }
+      ]
+    },
+    {
+      "name": "Explore",
+      "url": "/explore/",
+      "parent": "explore",
+      "dropdown": "yes",
+      "drop-links": [{
+          "name": "Walking Tours",
+          "url": "/explore/walking-tours/",
+          "parent": "explore",
+          "dropdown": "no"
+        },
+        {
+          "name": "Neighborhood",
+          "url": "/explore/neighborhood/",
+          "parent": "explore",
+          "dropdown": "no"
+        },
+        {
+          "name": "Landmarks",
+          "url": "/explore/landmarks",
+          "parent": "explore",
+          "dropdown": "no"
+        },
+        {
+          "name": "Within Walking Distance",
+          "url": "/explore/walkingdistance/",
+          "parent": "explore",
+          "dropdown": "no"
+        },
+        {
+          "name": "Colleges & Universities",
+          "url": "/explore/colleges-universities",
+          "parent": "explore",
+          "dropdown": "no"
+        },
+        {
+          "name": "Blog",
+          "url": "http://www.triumphhotels.com/blog/hotel/the-evelyn/",
+          "parent": "explore",
+          "dropdown": "no"
+        }
+      ]
+    },
+    {
+      "name": "Gallery",
+      "url": "/gallery/",
+      "parent": "gallery",
+      "dropdown": "no"
+    }
+
+  ],
+  "top-links": [{
+      "name": "Offers",
+      "url": "/offers/",
+      "parent": "offers"
+    },
+    {
+      "name": "Directions",
+      "url": "/directions/",
+      "parent": "directions"
+    },
+    {
+      "name": "Contact Us",
+      "url": "/contact/",
+      "parent": "contact"
+    },
+    {
+      "name": "Modify Reservation",
+      "url": "https://gc.synxis.com/rez.aspx?Hotel=20986&Chain=16087&template=GCF&shell=GCF4&start=searchres"
+    }
+
+  ],
+  "footer-links": [{
+      "name": "Press Room",
+      "url": "/press/",
+      "parent": "press"
+    },
+    {
+      "name": "Careers",
+      "url": "/careers/",
+      "parent": "careers"
+    },
+    {
+      "name": "Privacy Policy",
+      "url": "/privacy/",
+      "parent": "privacy"
+    },
+    {
+      "name": "Site Security",
+      "url": "/security/",
+      "parent": "security"
+    },
+    {
+      "name": "Site Map",
+      "url": "/sitemap/",
+      "parent": "sitemap"
+    },
+    {
+      "name": "Triumph Hotels",
+      "url": "/triumph/",
+      "parent": "triumph"
+    },
+    {
+      "name": "FAQs",
+      "url": "/faqs/",
+      "parent": "faqs"
+    }
+  ],
+  "siteURL": ""
+
+}

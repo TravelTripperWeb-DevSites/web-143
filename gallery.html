@@ -1,0 +1,73 @@
+---
+layout: default
+title: Hotel Madison Square Park | NoMad NYC Hotel | The Evelyn
+excerpt: See more of our hotel in NoMad NYC in The Evelyn Gallery. Enjoy one of the best hotels Madison Square Park has to offer. Book directly on our site.
+pageclass: 
+parent: gallery
+---
+
+   <div id="photos">
+         <div class="slideshow">
+            <figure class="photo" style="background-image:url('/images/cms/cache/1920x1080/80/13-807189ed5c31c53dff48b11f123b61e9.jpg');"> <img src="/images/cms/cache/1920x1080/80/13-807189ed5c31c53dff48b11f123b61e9.jpg" alt=""> </figure>
+            <figure class="photo" style="background-image:url('/images/cms/cache/1920x1080/2e/15-2ef2bdd9037eb67633cb29fe6b38b2a6.jpg');"> <img src="/images/cms/cache/1920x1080/2e/15-2ef2bdd9037eb67633cb29fe6b38b2a6.jpg" alt=""> </figure>
+            <figure class="photo" style="background-image:url('/images/cms/cache/1920x1080/29/11-294e451f226cd4649d8d9854baca5fe7.jpg');"> <img src="/images/cms/cache/1920x1080/29/11-294e451f226cd4649d8d9854baca5fe7.jpg" alt=""> </figure>
+            <figure class="photo" style="background-image:url('/images/cms/cache/1920x1080/af/10-af8ced44e1098bfbd9eba7b4700405a5.jpg');"> <img src="/images/cms/cache/1920x1080/af/10-af8ced44e1098bfbd9eba7b4700405a5.jpg" alt=""> </figure>
+         </div>
+         <div class="scroll-to-explore">Scroll to Explore</div>
+      </div>
+      <div id="content-area" class="container">
+         <section id="content">
+            <h1>View Our Madison Square Park Hotel</h1>
+            <h2>Take A Tour!</h2>
+            <p>See why we're one of the best hotels Madison Square Park has to offer. Explore a photo gallery of our NoMad NYC hotel to preview our <a href="/accommodations" onclick="">accommodations</a> and take a tour of the <a href="/explore/neighborhood" onclick="">neighborhood</a>.</p>
+            <h3>The Evelyn Gallery</h3>
+            <p></p>
+            <div class="galleries">
+               {% assign categories = site.data._models.gallery_categories | sort : "sort_order"  %}
+
+               {% for cat in categories  %}
+
+               <article class="gallery">
+                  <div class="col-md-12">
+                     <h4><a href="#" data-gallery-id="{{cat.cat_id}}">{{cat.cat_name}}</a></h4>
+                     <div class="galleryimage"> <a href="#" data-gallery-id="{{cat.cat_id}}"> <img src="{{cat.cat_thumb_image.url}}" alt="{{cat.thumb_alt}}"></a> <a href="#" data-gallery-id="{{cat.cat_id}}" class="thumbnail button">View More </a></div>
+                  </div>
+                  <div class="description">
+                     <p>{{cat.cat_description}}</p>
+                  </div>
+               </article>
+               {%endfor%}
+            </div>
+            <script type="text/javascript"> 
+            var galleryJSON = galleryJSON || {};
+             $.each({
+            {% for cat in categories  %} 
+               "{{ cat.cat_id }}": {
+                    "id": "{{ cat.cat_id }}",
+                    "slug": "{{ cat.urlslug }}",
+                    "name": "{{ cat.cat_name }}",
+                    "title": "{{ cat.cat_name }}",
+                    "images": [
+                    {% assign counter2 = 0 %}
+                     {% assign catimages = site.data._models.gallery_images  %} 
+                           {% for catimg in catimages  %}  
+                              {% if cat.cat_id == catimg.category.cat_id %} 
+                                 {% assign counter2 = counter2 | plus:1 %}  
+                                 {% if counter2 > 1 %},{% endif %}         
+                                 {
+                                    "image_id": "{{ catimg.img_id }}",
+                                    "thumb": "{{ catimg.thumb_image.url }}",
+                                    "full": "{{ catimg.full_image.url }}",
+                                    "caption": "{{ catimg.img_caption }}"
+                                 } 
+                               {% endif %} 
+                        {% endfor %}
+                    ]
+               }{% unless forloop.last %},{% endunless %}  
+             {% endfor %}  
+             },function($index, $value) {
+                galleryJSON[$index] = $value;
+            });
+            </script>
+         </section>
+      </div>

@@ -1,0 +1,61 @@
+---
+layout: default
+pagename: events
+title: Events | The Evelyn
+excerpt: Explore NYC with our list of things to do in the NoMad District.
+pageclass: hotel
+parent: events
+---
+
+<div id="photos">
+    <div class="slideshow">  
+        {% assign banners = site.data._models.homepage_slideshow %}
+        
+        {% for banner in banners %} 
+            {% if banner.CountryCode %}  
+                <figure class="bannerfor{% for country in banner.CountryCode %} {{country.code}}{% endfor %} photo {{banner.returnUser}}" style="background-image:url('{{banner.image.url}}');">
+            {% else %}
+                <figure class="photo {{banner.returnUser}}" style="background-image:url('{{banner.image.url}}');">
+            {% endif %}
+
+            {% if banner.linktype == "Image" %}
+                <a href="{{banner.booknow}}"><img src="{{banner.image.url}}" alt=""></a>
+            {% else %}
+                <img src="{{banner.image.url}}" alt=""> 
+            {% endif %}
+            </figure>
+        {% endfor %}
+    </div>
+</div>
+
+<div class="container">
+    <section id="content" class="listing">
+        <h1>Events</h1>
+        {% for event in site.data._models.events %}
+            <article class="special event-listing">
+                <div class="thumbnail-slot">
+                    <a href="/events/{{ event.url_friendly_name }}"><img src="{{event.eventimage.url}}" alt="{{event.title}}"></a>
+                </div>
+                <div class="short-description">
+                    <h3><a href="/events/{{ event.url_friendly_name }}">{{event.title}}</a></h3>
+                    <p class="dates">
+                        <span>{{ event.from_date | date: "%B %-d, %Y" }}</span> 
+                        {% if event.to_date %} &nbsp;to&nbsp;
+                            <span>{{ event.to_date | date: "%B %-d, %Y" }}</span> 
+                        {% endif %}
+                        
+                        <br>Location: <span>{{event.location}}</span>
+                    </p>
+                    <p>
+                        {% if event.short_description != "" %} 
+                            {{event.short_description}} 
+                        {% endif %}
+                    </p>
+                    <nav>
+                        <a href="/events/{{ event.url_friendly_name }}" class="button">Read More</a>
+                    </nav>
+                </div>
+            </article>
+        {% endfor %}
+    </section>
+</div>

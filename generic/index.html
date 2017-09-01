@@ -1,0 +1,36 @@
+---
+layout: default
+title: Hotel Jobs in New York City | The Evelyn Hotel
+excerpt: Learn about hotel jobs in New York City at The Evelyn.
+pageclass:  
+parent: generic
+---
+
+ <div id="photos">
+         <div class="slideshow">
+            <figure class="photo" style="background-image:url('/images/cms/cache/1920x1080/f4/38-f4fa3507bde098a8bff2d99c7a8002c0.jpg');"> <img src="/images/cms/cache/1920x1080/f4/38-f4fa3507bde098a8bff2d99c7a8002c0.jpg" alt=""> </figure>
+         </div>
+         <div class="scroll-to-explore">Scroll to Explore</div>
+      </div>
+      
+      <div id="content-area" class="container">
+         {% assign pages = site.pages %}
+         <aside id="sidebar"> 
+            <nav id="submenu">
+               <h4><a href="/explore">New York City</a></h4>
+               <ul>
+                  {% for p in pages %}
+                    {% if p.url contains '/generic/' %}  
+                      <li><a href="{{p.url}}">{{ p.url  | remove: '/generic/' | remove: '/' | replace: '-', ' ' | camelcase}}</a></li>
+                    {% endif %}
+                  {% endfor %}                
+               </ul>
+            </nav>
+         </aside>
+         <section id="content">
+         {% regionblock  careers_content %}
+   
+         {% endregionblock %}
+         </section>
+      </div>
+     

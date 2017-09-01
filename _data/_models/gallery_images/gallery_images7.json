@@ -1,0 +1,13 @@
+{
+	"category": "gallery_category2",
+	"img_id": 61,
+	"img_caption": "Flatiron Building",
+	"thumb_image": {
+		"url": "https://cdn.traveltripper.io/site-assets/414_450_1406/media/2017-01-27-015217/Thumb_31_61-05a94f7276a467b6f847728db57271e2.jpg"
+	},
+	"full_image": {
+		"url": "https://cdn.traveltripper.io/site-assets/414_450_1406/media/2017-01-27-020237/Full_31_61-c443073b4f8f5cfd2fd51e997f9d3a14.jpg"
+	},
+	"sort_order": 7,
+	"name": "Flatiron Building"
+}

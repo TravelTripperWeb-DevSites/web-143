@@ -1,0 +1,31 @@
+---
+layout: default
+title: Events in New York City | The Evelyn
+---
+
+{% assign event = page %}
+{% assign model = page %}
+
+<div id="photos">
+    <div class="slideshow">
+        <figure class="photo" style="background-image:url('/images/cms/cache/1920x1080/80/29-80ab2aa495b98628dd28bd8e6c05fd42.jpg');">
+        <img src="/images/cms/cache/1920x1080/80/29-80ab2aa495b98628dd28bd8e6c05fd42.jpg" alt="" title=""> </figure>
+    </div>
+    <div class="scroll-to-explore">Scroll to Explore</div>
+</div>
+<div id="content-area" class="container">
+    <section id="content">
+
+        <h1>{{event.title}}</h1>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+
+        <div>
+            {% if event.long_desc %} 
+                {{event.long_desc}} 
+            {% endif %}
+        </div>
+
+        </section>
+</div>

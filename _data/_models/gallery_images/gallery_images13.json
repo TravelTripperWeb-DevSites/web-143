@@ -1,0 +1,13 @@
+{
+	"category": "gallery_category3",
+	"img_id": 12,
+	"img_caption": "Deluxe Double-Double",
+	"thumb_image": {
+		"url": "https://cdn.traveltripper.io/site-assets/414_450_1406/media/2017-01-27-015507/Thumb_37_12-c52c716efcf0f4bcc9a78b37284e314a.jpg"
+	},
+	"full_image": {
+		"url": "https://cdn.traveltripper.io/site-assets/414_450_1406/media/2017-01-27-020557/Full_37_12-edc0091aa9632b90596e09c7805b699c.jpg"
+	},
+	"sort_order": 13,
+	"name": "Deluxe Double-Double"
+}

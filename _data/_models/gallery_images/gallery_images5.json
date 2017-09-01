@@ -1,0 +1,13 @@
+{
+	"category": "gallery_category2",
+	"img_id": 21,
+	"img_caption": "Guest Room",
+	"thumb_image": {
+		"url": "https://cdn.traveltripper.io/site-assets/414_450_1406/media/2017-01-27-015214/Thumb_31_21-ebe5f051bbc7f25766202a6c7b7c1063.jpg"
+	},
+	"full_image": {
+		"url": "https://cdn.traveltripper.io/site-assets/414_450_1406/media/2017-01-27-020234/Full_31_21-a38c8c5ba6fcc07f03635a4a4a5dae9d.jpg"
+	},
+	"sort_order": 5,
+	"name": "Guest Room"
+}

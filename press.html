@@ -1,0 +1,226 @@
+---
+layout: default
+title: NYC Hotel Reviews | Press Room | The Gershwin Hotel
+excerpt: Find NYC hotel reviews and updates from The Gershwin Hotel in our Press Room.
+pageclass:  
+parent: press
+---
+
+ <div id="photos">
+         <div class="slideshow">
+            <figure class="photo" style="background-image:url('/images/cms/cache/1920x1080/c2/26-c20f14141d61f7cd116317ddd4faaa38.jpg');"> <img src="/images/cms/cache/1920x1080/c2/26-c20f14141d61f7cd116317ddd4faaa38.jpg" alt=""> </figure>
+         </div>
+         <div class="scroll-to-explore">Scroll to Explore</div>
+      </div>
+     
+      <div id="content-area" class="container">
+         <section id="content">
+           {% regionblock  press_content %}
+            <h1>NYC Hotel Reviews and News</h1>
+            <h2>The Evelyn Press Room</h2>
+            <p>Welcome to The Evelyn Press Room, where you'll find the latest news about our NoMad hotel. We look forward to welcoming you to The Evelyn!</p>
+            <p>
+               <script type="text/javascript"> var pressroomJSON = pressroomJSON || {}; $.each([], function($index, $value) { pressroomJSON[$index] = $value; }); </script>
+            </p>
+            {% endregionblock %}
+
+            <div id="pressroom">
+               <div class="category-selector"> <button data-category="0" class="button">All</button> <button data-category="4" class="button">The Evelyn</button> </div>
+               <script type="text/javascript"> pressroomJSON = [] || {}; </script>
+               {% assign press = site.data._models.press | sort : "sort_order"  %}
+                {% for press-item in press %} 
+               <article class="pressroom-entry img" data-category="4">
+                  <img src="{{press-item.thumb_image.url}}" alt="">
+                  <div class="description">
+                     <div class="centered">
+                        <h3>{{press-item.title}} <span>- {{press-item.date}}</span></h3>
+                        <p><a href="{{press-item.description_url}}" onclick="">{{press-item.description_text}}</a></p>
+                        <nav><a href="{{press-item.url}}">{{press-item.url_text}} ({{press-item.pdf_size}})</a> </nav>
+                     </div>
+                  </div>
+               </article>
+               {% endfor %}
+               <!--article class="pressroom-entry img" data-category="4">
+                  <img src="/images/cms/cache/452x388/49/382-49cab1af4b319bf29709758666a3a4fc.jpg" alt="Paste Magazine">
+                  <div class="description">
+                     <div class="centered">
+                        <h3>Paste Magazine <span>- 08.29.2016</span></h3>
+                        <p><a href="https://www.pastemagazine.com/articles/2016/08/the-most-instagram-able-spots-for-new-york-fashion.html" onclick="">The Most Instagram-able Spots for New York Fashion Week</a></p>
+                        <nav><a href="/images/cms/pressroom/paste_com_8_29_16.pdf">Download PDF (261.53 KB)</a> </nav>
+                     </div>
+                  </div>
+               </article>
+               <article class="pressroom-entry img" data-category="4">
+                  <img src="/images/cms/cache/452x388/69/14-69d71b19feb2f2ed3608ac65ef9900e9.jpg" alt="Byrdie.com">
+                  <div class="description">
+                     <div class="centered">
+                        <h3>Byrdie.com <span>- 07.11.2016</span></h3>
+                        <p><a href="http://www.byrdie.com/skincare-hacks-travel/slide9" onclick="">How to Hack Your Hotel Room Toiletries Into a Full-Blown Skincare Routine</a></p>
+                        <nav><a href="/images/cms/pressroom/byrdie_com_7_11_16.pdf">Download PDF (1.42 MB)</a> </nav>
+                     </div>
+                  </div>
+               </article>
+               <article class="pressroom-entry img" data-category="4">
+                  <img src="/images/cms/cache/452x388/37/9-3715daf23f8ccb283fa18255860c1cca.jpg" alt="Real Estate Weekly">
+                  <div class="description">
+                     <div class="centered">
+                        <h3>Real Estate Weekly <span>- 11.18.2015</span></h3>
+                        <p><a href="http://rew-online.com/2015/11/18/report-ace-hotel-opening-driving-growth-in-nomad/" onclick="" target="_blank">Report: Hotel Boom Driving Growth in NoMad</a></p>
+                        <nav><a href="/images/cms/pressroom/realestateweekly_11_18_15.pdf">Download PDF (558.73 KB)</a> </nav>
+                     </div>
+                  </div>
+               </article>
+               <article class="pressroom-entry img" data-category="4">
+                  <img src="/images/cms/cache/452x388/5e/8-5efbbc275c22c827defc600f72fe7b94.jpg" alt="AAA Today">
+                  <div class="description">
+                     <div class="centered">
+                        <h3>AAA Today <span>- 10.27.2015</span></h3>
+                        <p><a href="http://blog.ny.aaa.com/5-hip-hotels-in-nycs-nomad-neighborhood/" onclick="" target="_blank">5 Hip Hotels in NYC's NoMad Neighborhood</a></p>
+                        <nav><a href="/images/cms/pressroom/aaablog_10_27_15.pdf">Download PDF (438.8 KB)</a> </nav>
+                     </div>
+                  </div>
+               </article>
+               <article class="pressroom-entry img" data-category="4">
+                  <img src="/images/cms/cache/452x388/fd/444-fd2728d432f8af74b7b1751dc71a5f45.jpg" alt="Hospitality Design">
+                  <div class="description">
+                     <div class="centered">
+                        <h3>Hospitality Design <span>- 10.02.2015</span></h3>
+                        <p><a href="http://www.hospitalitydesign.com/galleries/projects/hotels-resorts-wellness/New-in-New-York-14339.shtml#27" onclick="" target="_blank">New in New York</a></p>
+                        <nav><a href="/images/cms/pressroom/hospitalitydesign_121814.pdf">Download PDF (132.71 KB)</a> </nav>
+                     </div>
+                  </div>
+               </article>
+               <article class="pressroom-entry img" data-category="4">
+                  <img src="/images/cms/cache/452x388/94/380-946919b24f575852a84a949c333dbfb8.jpg" alt="ThePRNet.com">
+                  <div class="description">
+                     <div class="centered">
+                        <h3>ThePRNet.com <span>- 08.11.2015</span></h3>
+                        <p><a href="https://theprnet.com/gallery/184" onclick="" target="_blank">Kelsey Montague</a></p>
+                        <nav><a href="/images/cms/pressroom/theprnetcom_81115.pdf">Download PDF (3.8 MB)</a> </nav>
+                     </div>
+                  </div>
+               </article>
+               <article class="pressroom-entry img" data-category="4">
+                  <img src="/images/cms/cache/452x388/62/379-6273c098731c7d37e956572ec31a5010.jpg" alt="Kelsey Montague Art">
+                  <div class="description">
+                     <div class="centered">
+                        <h3>Kelsey Montague Art <span>- 08.10.2015</span></h3>
+                        <p><a href="http://kelseymontagueart.com/wings-over-new-york-the-evelyn-hotel/" onclick="" target="_blank">Kelsey Montague Art</a><a href="http://kelseymontagueart.com/wings-over-new-york-the-evelyn-hotel/" onclick="" target="_blank">: Wings Over New York - The Evelyn Hotel</a></p>
+                        <nav><a href="/images/cms/pressroom/kelsey_montague_blog_81015.pdf">Download PDF (2.96 MB)</a> </nav>
+                     </div>
+                  </div>
+               </article>
+               <article class="pressroom-entry img" data-category="4">
+                  <img src="/images/cms/cache/452x388/f8/378-f8d933c7de2c493a10e29277999f449f.jpg" alt="The Culture Trip">
+                  <div class="description">
+                     <div class="centered">
+                        <h3>The Culture Trip <span>- 08.10.2015</span></h3>
+                        <p><a href="http://theculturetrip.com/north-america/usa/new-york/articles/triumph-hotels-innovators-of-the-hospitality-industry/" onclick="" target="_blank">Triumph Hotels: Innovators Of The Hospitality Industry</a></p>
+                        <nav><a href="/images/cms/pressroom/the_culture_trip_81015.pdf">Download PDF (1.18 MB)</a> </nav>
+                     </div>
+                  </div>
+               </article>
+               <article class="pressroom-entry img" data-category="4">
+                  <img src="/images/cms/cache/452x388/59/376-597c73acf7407d2c314a7032d1089411.jpg" alt="Gotham Magazine">
+                  <div class="description">
+                     <div class="centered">
+                        <h3>Gotham Magazine <span>- 08.05.2015</span></h3>
+                        <p><a href="http://gotham-magazine.com/triumph-hotels-unveils-kelsey-montague-interactive-mural" onclick="" target="_blank">TRIUMPH HOTELS UNVEILS KELSEY MONTAGUE INTERACTIVE MURAL</a></p>
+                        <nav><a href="/images/cms/pressroom/gotham_8515.pdf">Download PDF (3.45 MB)</a> </nav>
+                     </div>
+                  </div>
+               </article>
+               <article class="pressroom-entry img" data-category="4">
+                  <img src="/images/cms/cache/452x388/a0/375-a017c47ec4afd90279a37755109b27c6.jpg" alt="Guest of a Guest">
+                  <div class="description">
+                     <div class="centered">
+                        <h3>Guest of a Guest <span>- 08.05.2015</span></h3>
+                        <p><a href="http://h.guestofaguest.com/new-york/calendar/2015/august/kelsey-montague-interactive-mural-unveiling-cocktail-event" onclick="" target="_blank">Kelsey Montague Interactive Mural Unveiling Cocktail Event</a></p>
+                        <nav><a href="/images/cms/pressroom/guest_of_a_guest_8515.pdf">Download PDF (80.38 KB)</a> </nav>
+                     </div>
+                  </div>
+               </article>
+               <article class="pressroom-entry img" data-category="4">
+                  <img src="/images/cms/cache/452x388/85/343-85df403d3acb76e0cf56830d05ba2b89.jpg" alt="New York Times">
+                  <div class="description">
+                     <div class="centered">
+                        <h3>New York Times <span>- 07.31.2015</span></h3>
+                        <p><a href="http://www.nytimes.com/2015/07/31/travel/fridays-travel-news-live-art-at-the-evelyn-celebrating-the-revolution-elvis-week-in-memphis.html?referrer=" onclick="" target="_blank">Friday's Travel News: Live Art at The Evelyn</a></p>
+                        <nav><a href="/images/cms/pressroom/nytcom_73115.pdf">Download PDF (649.57 KB)</a> </nav>
+                     </div>
+                  </div>
+               </article>
+               <article class="pressroom-entry img" data-category="4">
+                  <img src="/images/cms/cache/452x388/fd/336-fdfe8ab62ddf52cd849d54aa0f760e48.jpg" alt="Travel Weekly">
+                  <div class="description">
+                     <div class="centered">
+                        <h3>Travel Weekly <span>- 07.06.2015</span></h3>
+                        <p><a href="http://www.travelweekly.com/Danny-King/What-is-in-a-name" onclick="" target="_blank">"What's In a Name?"&nbsp;</a></p>
+                        <nav><a href="/images/cms/pressroom/travel_weekly_7615.pdf">Download PDF (4.68 MB)</a> </nav>
+                     </div>
+                  </div>
+               </article>
+               <article class="pressroom-entry img" data-category="4">
+                  <img src="/images/cms/cache/452x388/c2/325-c210986f87f5c9ab1966666b001bae48.jpg" alt="The Duane Wells">
+                  <div class="description">
+                     <div class="centered">
+                        <h3>The Duane Wells <span>- 06.30.2015</span></h3>
+                        <p><a href="http://theduanewells.com/2015/06/boutique-nyc-big-city-little-treasures/" onclick="" target="_blank">Boutique NYC | Big City, Little Treasures</a></p>
+                        <nav><a href="/images/cms/pressroom/theduanewells_63015.pdf">Download PDF (3.69 MB)</a> </nav>
+                     </div>
+                  </div>
+               </article>
+               <article class="pressroom-entry img" data-category="4">
+                  <img src="/images/cms/cache/452x388/88/332-88511315d86c08cda2934edb5c3d7b54.jpg" alt="National Post">
+                  <div class="description">
+                     <div class="centered">
+                        <h3>National Post <span>- 06.25.2015</span></h3>
+                        <p><a href="http://news.nationalpost.com/arts/weekend-post/room-keys-get-ready-for-summertime-in-the-city-at-new-yorks-evelyn-hotel" onclick="" target="_blank">Room Keys: Get ready for summertime in the city at New York&rsquo;s Evelyn Hotel</a></p>
+                        <nav><a href="/images/cms/pressroom/national_post_6_27_15.pdf">Download PDF (2.32 MB)</a> </nav>
+                     </div>
+                  </div>
+               </article>
+               <article class="pressroom-entry img" data-category="4">
+                  <img src="/images/cms/cache/452x388/c2/26-c20f14141d61f7cd116317ddd4faaa38.jpg" alt="Hospitality Design">
+                  <div class="description">
+                     <div class="centered">
+                        <h3>Hospitality Design <span>- 12.18.2014</span></h3>
+                        <p><a href="http://www.hospitalitydesign.com/news/hotels-rest-wellness/New-York-s-Gershwin-Hotel-Rebranded-as-the-Evelyn-12020.shtml" onclick="" target="_blank">New York's Gershwin Hotel Rebranded as The Evelyn</a></p>
+                        <nav><a href="/images/cms/pressroom/hospitalitydesign_121814.pdf">Download PDF (132.71 KB)</a> </nav>
+                     </div>
+                  </div>
+               </article>
+               <article class="pressroom-entry img" data-category="4">
+                  <img src="/images/cms/cache/452x388/2e/15-2ef2bdd9037eb67633cb29fe6b38b2a6.jpg" alt="HotelChatter">
+                  <div class="description">
+                     <div class="centered">
+                        <h3>HotelChatter <span>- 12.22.2014</span></h3>
+                        <p><a href="http://www.hotelchatter.com/story/2014/12/22/92737/873/hotels/The_Gershwin_is_Dead,_Long_Live_The_Evelyn" onclick="" target="_blank">The Gershwin is Dead, Long Live The Evelyn</a></p>
+                        <nav><a href="/images/cms/pressroom/hotelchatter_122214.pdf">Download PDF (1.31 MB)</a> </nav>
+                     </div>
+                  </div>
+               </article>
+               <article class="pressroom-entry img" data-category="4">
+                  <img src="/images/cms/cache/452x388/a2/14-a2794fc8f48dc84eaaa6fed3c724680e.jpg" alt="Hotel News Resource">
+                  <div class="description">
+                     <div class="centered">
+                        <h3>Hotel News Resource <span>- 12.17.2014</span></h3>
+                        <p><a href="http://www.hotelnewsresource.com/article81297.html" onclick="" target="_blank">Manhattan's The Gershwin Hotel Rebranded as The Evelyn</a></p>
+                        <nav><a href="/images/cms/pressroom/hotel_news_resource_121714.pdf">Download PDF (617.02 KB)</a> </nav>
+                     </div>
+                  </div>
+               </article>
+               <article class="pressroom-entry img" data-category="4">
+                  <img src="/images/cms/cache/452x388/d1/17-d1d8c9d7a8959127040f91eb4ad6a5de.jpg" alt="Crain's New York Business">
+                  <div class="description">
+                     <div class="centered">
+                        <h3>Crain's New York Business <span>- 12.16.2014</span></h3>
+                        <p><a href="http://www.crainsnewyork.com/article/20141216/HOSPITALITY_TOURISM/141219901/gershwin-hotels-gender-bender" onclick="" target="_blank">Gershwin Hotel's Gender Bender</a></p>
+                        <nav><a href="/images/cms/pressroom/crains_121614.pdf">Download PDF (146.02 KB)</a> </nav>
+                     </div>
+                  </div>
+               </article-->
+            </div>
+         </section>
+      </div>
+      

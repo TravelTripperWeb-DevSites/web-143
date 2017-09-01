@@ -1,0 +1,58 @@
+---
+layout: default
+title: DISCOVER EXCLUSIVE NYC HOTEL DEALS | The Evelyn
+excerpt: Gracious hospitality, a rich sense of history, and exceptional service await at The Evelyn
+pageclass:  
+parent: explore
+---
+
+<div id="photos">
+         <div class="slideshow">
+            <figure class="photo" style="background-image:url('/images/cms/cache/1920x1080/25/28-259921ba8e0f620a77010636a2c56bff.jpg');"> <img src="/images/cms/cache/1920x1080/25/28-259921ba8e0f620a77010636a2c56bff.jpg" alt=""> </figure>
+         </div>
+         <div class="scroll-to-explore">Scroll to Explore</div>
+      </div>
+
+    <div id="content-area" class="container">
+         <section id="content">
+            <h1>Discover NYC Hotel Blog</h1>
+            <!--<h2>Some Text Some Text</h2>
+            <h3>Some Text Some Text</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>-->
+            <hr>
+            <h3>Blog</h3>
+            {% for post in data_paginator.posts | sort : 'date'%}
+            {% assign mod = forloop.index | modulo: 2 %}
+               <article class="special blog-listing {% if mod != 0 %}odd{% endif %}">
+                  <h3><a href="{{ post.url_friendly_name }}">{{ post.title }}</a></h3>
+                  <div class="date-holder">{{post.date  |  date: "%B %d, %Y"}}</div>
+                  <p class="thumbnail"><a href="{{ post.url_friendly_name }}"><img src="{{ post.blogimage.url }}" alt="{{ post.title }}" title="{{ post.title }}"></a></p>
+                  <p>{{post.short_description}}</p>
+                  <nav><a href="/blog/{{post.url_friendly_name}}" class="button">Read More</a></nav>
+               </article>
+            {% endfor %}
+            
+            <div class="pagination-wrapper">
+<div class="pagination"> 
+ <p><span class="page_number">Page: {{ data_paginator.page }} of {{ data_paginator.total_pages }}</span></p>
+<ul class="pagination">
+
+  {% if data_paginator.previous_page %}
+    <li><a href="{{ data_paginator.previous_page_path }}" class="button">Previous</a></li>
+  {% else %}
+    <li><span class="button">Previous</span></li>
+  {% endif %}
+   
+  {% if data_paginator.next_page %}
+    <li><a href="{{ data_paginator.next_page_path }}" class="button">Next</a></li>
+  {% else %}
+    <li><span class="button">Next</span></li>
+  {% endif %}
+  </ul>
+
+</div>
+</div>
+            
+         </section>
+      </div>
+     

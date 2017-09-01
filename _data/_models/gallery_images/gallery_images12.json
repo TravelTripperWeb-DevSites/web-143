@@ -1,0 +1,13 @@
+{
+	"category": "gallery_category3",
+	"img_id": 13,
+	"img_caption": "Deluxe King",
+	"thumb_image": {
+		"url": "https://cdn.traveltripper.io/site-assets/414_450_1406/media/2017-01-27-015621/Thumb_37_13-807189ed5c31c53dff48b11f123b61e9.jpg"
+	},
+	"full_image": {
+		"url": "https://cdn.traveltripper.io/site-assets/414_450_1406/media/2017-01-27-020558/Full_37_13-b9cba4fc35817f1b2b2114fcab19c103.jpg"
+	},
+	"sort_order": 12,
+	"name": "Deluxe King"
+}

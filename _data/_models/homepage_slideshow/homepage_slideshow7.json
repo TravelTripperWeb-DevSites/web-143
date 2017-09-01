@@ -1,0 +1,25 @@
+{
+  "name": "Book Direct & Receive A $25 American Express Card Per Day",
+  "linktype": "Book Now",
+  "booknow": "http://www.theevelyn.com/offers/reward-yourself-package/",
+  "returnUser": "All",
+  "image": {
+    "url": "https://cdn.traveltripper.io/site-assets/414_450_1406/media/2017-01-27-020747/Full_37_725-9ce574fe82870c5663546c3f6272b3a7.jpg",
+    "path": "https://cdn.traveltripper.io/site-assets/414_450_1406/media/2017-01-27-020747/Full_37_725-9ce574fe82870c5663546c3f6272b3a7.jpg",
+    "file_type": "image/jpeg",
+    "name": "Full_37_725-9ce574fe82870c5663546c3f6272b3a7",
+    "tags": "",
+    "url_large": null,
+    "url_thumb": null,
+    "url_medium": null,
+    "url_small": null,
+    "url_xsmall": null,
+    "width": null,
+    "height": null,
+    "file_size": null,
+    "alt": "Book Direct",
+    "caption": "",
+    "description": ""
+  },
+  "sort_order": 2
+}

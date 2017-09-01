@@ -1,0 +1,25 @@
+---
+layout: default
+title: Triumph Exclusive | NoMad Hotel | The Evelyn
+excerpt: The Evelyn, a NoMad Hotel, part of Triumph Hotel group, offers members an exclusive 30% off rate when they book direct online or by phone.
+pageclass: offers
+parent: offers
+---
+{% assign offer = page %}
+{% assign model = page %}
+ <div id="photos">
+         <div class="slideshow">
+            <figure class="photo" style="background-image:url('{{ offer.offer_banner_image.url  }}');"> <img src="{{ offer.offer_banner_image.url  }}" alt="{{ offer.alt_text }}"> </figure>
+         </div>
+         <div class="scroll-to-explore">Scroll to Explore</div>
+      </div>
+      {% regionblock  triumph-exclusive_content %}
+      <div id="content-area" class="container">
+         <section id="content">
+            <h1>{{ offer.title }}</h1>
+            <h2>{{ offer.sub_title }}</h2>
+               {{ offer.long_desc }}
+               <nav><a onclick="" href="{{ offer.book_pkg_online }}" class="button" target="_blank" rel="nofollow">Book Package Online</a> </nav>
+         </section>
+      </div>
+      {% endregionblock %}

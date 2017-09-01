@@ -1,0 +1,72 @@
+---
+layout: default
+title: DISCOVER EXCLUSIVE NYC HOTEL DEALS | The Evelyn
+excerpt: Gracious hospitality, a rich sense of history, and exceptional service await at The Evelyn
+pageclass:
+parent: offers
+---
+
+<div id="photos">
+  <div class="slideshow">
+    <figure class="photo" style="background-image:url('/images/cms/cache/1920x1080/25/28-259921ba8e0f620a77010636a2c56bff.jpg');">
+      <img src="/images/cms/cache/1920x1080/25/28-259921ba8e0f620a77010636a2c56bff.jpg">
+    </figure>
+  </div>
+  <div class="scroll-to-explore">Scroll to Explore</div>
+</div>
+
+<div id="content-area" class="container">
+  <section id="content">
+    {% regionblock  offers-index_content %}
+      <h1>Discover Exclusive NYC Hotel Deals</h1>
+      <h2>Learn About the Hotel's Specials</h2>
+      <h3>NYC Hotel Packages at The Evelyn</h3>
+      <p>Gracious hospitality, a rich sense of history, and exceptional service await at The Evelyn, a favorite among affordable NYC hotels located in the heart of New York City's Flatiron District. Take advantage of exclusive NYC hotel deals and transport yourself to this classic New York City neighborhood. With Madison Square Park, the Empire State Building, and Midtown just minutes away. The Evelyn is perfectly situated for business and leisure travelers alike.</p>
+    {% endregionblock %}
+
+    <hr>
+
+    <h3>Special Offers</h3>
+
+    <!-- Captured numbers may act as strings, and can be converted to numbers using the following hack: -->
+    {% assign currentDate = currentDate | plus: 0 %}
+
+    {% assign offers = site.data._models.special_offers | sort: "sort_order" %}
+    {% for offer in offers %}
+      <!-- Check to see if the item has been published. -->
+      {% if offer.isPublished == true %}
+        <!-- Capture the current date. -->
+        {% capture currentDate %}{{ 'now' | date: '%s' }}{% endcapture %}
+        <!-- Capture the item's expiration date. -->
+        {% capture expireDate %}{{ offer.expire_date | date: '%s' }}{% endcapture %}
+        <!-- If the current date is less than the item's expiration date OR the item doesn't have a expiration date, show the offer.  -->
+        {% if currentDate < expireDate or offer.expire_date == null %}
+          {% assign mod = forloop.index | modulo: 2 %}
+
+          <article class="special expired {% if mod != 0 %}odd{% endif %}" data-expire-date="{{ item.expire_date }}">
+
+            <h3><a href="{{ offer.url_friendly_name }}">{{ offer.title }}</a></h3>
+
+            <p class="thumbnail">
+              <a href="{{ offer.url_friendly_name }}">
+                <img src="{{ offer.offer_image.url }}" alt="{{ offer.offer_image.alt }}" title="{{ offer.title }}">
+              </a>
+            </p>
+
+            {{ offer.short_desc }}
+
+            <nav>
+              <a href="{{ offer.url_friendly_name }}" class="button">{{ offer.readmore_btn_text }}</a>
+              {% if offer.book_pkg_online != '' %}
+                <a class="button" href="{{ offer.book_pkg_url }}" target="_blank" rel="nofollow">{{ offer.book_pkg_online }}</a>
+              {% endif %}
+            </nav>
+
+          </article>
+
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+
+  </section>
+</div>
