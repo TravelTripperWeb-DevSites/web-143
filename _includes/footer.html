@@ -1,0 +1,55 @@
+<footer id="footer">
+         <div class="footer-wrapper">
+            <nav id="footer-menu" class="wrapper container">
+               <ul>
+                   {% for footerlink in obj.footer-links %} 
+                  {% if footerlink.parent == page.parent %} 
+                  <li> <a href="{{footerlink.url}}"  class="active">{{footerlink.name}}</a> </li>
+                  {% else if %}
+                    <li> <a href="{{footerlink.url}}">{{footerlink.name}}</a> </li>
+                  {% endif %} 
+                 {% endfor %}
+               </ul> 
+               <small class="copyright">&copy; 2016 The Evelyn</small> 
+            </nav>
+         </div>
+         <div id="info-wrapper" class="wrapper container">
+           <div class="row">
+           <div class="col-xs-12 col-sm-6 col-md-3">
+             <article class="block-1 block">
+               <h4>The Evelyn</h4>
+               <span class="adr"> <span class="street-address">7 East 27th Street</span><br> <span class="locality">New York</span>, <span class="region">NY</span> <span class="postal-code">10016</span> </span> 
+            </article>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-3">
+            <article class="block-2 block">
+               <h4>Reservations</h4>
+               <span class="tel"><span class="type">Phone:</span> <span class="InfinityNumber">855.468.3501</span></span><br> <span><a href="mailto:EvelynRes@triumphny.com">EvelynRes@triumphny.com</a></span> 
+            </article>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-3">
+            <article class="block-3 block">
+               <h4>Sales Inquiries</h4>
+               <span class="tel"><span class="type">Phone:</span> <span class="InfinityNumber ">(646) 507-5403</span></span><br> <span><a href="mailto:sales@theevelyn.com">sales@theevelyn.com</a></span> 
+            </article>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-3">
+            <article class="block-4 block">
+               <h4>Stay Connected</h4>
+               <form action="/connect#content" method="GET">
+                  <fieldset>
+                     <legend></legend>
+                     <p> <input type="text" name="scemail" id="sc-email" value="" class="text validate[required,custom[email]]" placeholder="Your Email"> <input type="submit" value=""> </p>
+                  </fieldset>
+               </form>
+            </article>
+            </div>
+            </div>
+         <div class="row">
+             <div class="col-md-12" style="padding-top: 20px;"> 
+            <a href="https://www.triumphhotels.com/" class="triumphhotels icons" target="_blank">Triumph Hotels</a> 
+            <div class="btAdvantage icons"><a href="">dddddd<img src="" alt=""></a></div>
+            </div>
+            </div>
+         </div>
+      </footer>

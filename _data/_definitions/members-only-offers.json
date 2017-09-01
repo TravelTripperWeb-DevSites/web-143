@@ -1,0 +1,69 @@
+{
+    "title":
+    {
+      "required": true,  
+      "label": "Offer Title"
+    },        
+    "sub_title":
+    {
+      "type": "richtext",
+      "label": "Sub Title"
+    }, 
+    "short_desc":
+    {
+      "required": true,  
+      "type": "richtext",
+      "label": "Short Desc"
+    },   
+   "long_desc":
+    {
+      "required": true,  
+      "type": "richtext",
+      "label": "Detail Desc"
+    },
+    "url_friendly_name":
+    {
+      "required": true,  
+      "label": "Learn More Link"
+    },
+      "offer_banner_image":
+    { 
+      "required": true,  
+      "type": "image",
+      "hint": "recommended image size is 1920 x 1080 (px)",
+      "label": "Upload Banner Image"   
+    },    
+    "offer_image":
+    {
+      "required": true,  
+      "type": "image",
+      "hint": "recommended image size is 960 x 365 (px)",
+      "label": "Small Image"   
+    },
+    "alt_text":
+    {
+      "label": "Image Alt Text"
+    },        
+    "book_pkg_online":
+    {
+      "label": "Book Package URL"
+    },
+      
+    "page_title":{
+      "label": "Page Title Tag - 55 Character Limit"
+    }, 
+    "meta_content":{
+      "type": "richtext",
+      "label": "Meta Description - 155 Character Limit"
+    },            
+    "sort_order": 
+    { 
+      "type": "integer",
+      "required": true 
+    },
+    "hide_offer":
+    {
+      "label": "Hide this offer?",
+      "type": "boolean"
+    }
+}

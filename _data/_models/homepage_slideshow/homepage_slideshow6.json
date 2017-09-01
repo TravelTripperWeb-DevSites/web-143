@@ -1,0 +1,12 @@
+{
+  "image": {
+    "url": "https://cdn.traveltripper.io/site-assets/414_450_2963/media/2017-05-02-134925/Lion King Minskoff-Theatre.jpg",
+    "alt": "Build Your NYC Itinerary"
+  },
+  "name": "Build Your NYC Itinerary",
+  "linktype": "Image",
+  "booknow": "/offers/itinerary/",
+  "returnUser": "All",
+  "sort_order": 5,
+  "unpublish": true
+}

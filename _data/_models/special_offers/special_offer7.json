@@ -1,0 +1,20 @@
+{
+	"book_pkg_url": "http://theevelyn.reservenewyorkcity.com/",
+	"sort_order": 1,
+  "isPublished": true,
+  "expire_date": null,
+	"meta_content": "<p>Book your NYC stay&nbsp;along with your dream itinerary in one place.</p>",
+	"page_title": "Offers | Destination NYC | The Evelyn",
+	"readmore_btn_text": "Read More",
+	"book_pkg_online": "Book Now",
+	"long_desc": "<p>See the latest Broadway shows like Aladdin&nbsp;or book a special tour across the Brooklyn Bridge, Triumph Hotels and Reserve Direct have all you need to make your dream NYC itinerary. At The Evelyn, guests like you get the best value for&nbsp;your&nbsp;stay and tickets to New York City's must-see&nbsp;attractions.</p>",
+	"short_desc": "<p>Book your NYC stay&nbsp;along with your dream itinerary in one place.</p>",
+	"url_friendly_name": "itinerary",
+	"title": "Build Your NYC Itinerary",
+	"offer_image": {
+		"url": "https://cdn.traveltripper.io/site-assets/414_450_2963/media/2017-05-02-090222/Aladdin_(10701).jpg"
+	},
+	"offer_banner_image1": {
+		"url": "https://cdn.traveltripper.io/site-assets/414_450_2963/media/2017-05-02-134925/Lion King Minskoff-Theatre.jpg"
+	}
+}

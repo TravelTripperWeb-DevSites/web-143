@@ -1,0 +1,13 @@
+{
+	"category": "gallery_category2",
+	"img_id": 19,
+	"img_caption": "Bathroom",
+	"thumb_image": {
+		"url": "https://cdn.traveltripper.io/site-assets/414_450_1406/media/2017-01-27-015213/Thumb_31_19-598a3a5ddc704112128ed3247689a001.jpg"
+	},
+	"full_image": {
+		"url": "https://cdn.traveltripper.io/site-assets/414_450_1406/media/2017-01-27-020038/Full_31_19-c230f019eccd027526c9588fb0eeb447.jpg"
+	},
+	"sort_order": 6,
+	"name": "Bathroom"
+}

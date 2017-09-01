@@ -1,0 +1,8 @@
+
+   {
+        "image": {"type" : "image"},
+        "caption": {"type" : "text"},
+        "link": {"type" : "text"},
+        "description": {"type" : "text"}
+  }
+

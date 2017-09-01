@@ -1,0 +1,48 @@
+{
+    "title": {
+        "required": true,
+        "label": "Event Title"
+    },
+    "eventimage": {
+        "type": "image",
+        "required": true,
+        "hint": "recommended image size is 1920 x 1080 (px)",
+        "label": "Event Image"
+    },
+    "seo_title": {
+        "label": "SEO Title"
+    },
+    "seo_description": {
+        "label": "SEO Description"
+    },
+    "url_friendly_name": {
+        "type": "url_slug",
+        "label": "URL Friendly Name"
+    },
+    "from_date": {
+        "type": "date",
+        "required": true,
+        "label": "Start Date"
+    },
+    "to_date": {
+        "type": "date",
+        "label": "End Date"
+    },
+    "location": {
+        "required": true,
+        "label": "Location"
+    },
+    "event_url": {
+        "hint": "Link to optional external event information.",
+        "label": "Event URL"
+    },
+    "short_description": {
+        "required": false,
+        "type": "richtext",
+        "label": "Short Description"
+    },
+    "more_content": {
+        "type": "richtext",
+        "label": "More Content"
+    }
+}

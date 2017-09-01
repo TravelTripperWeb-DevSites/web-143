@@ -1,0 +1,12 @@
+{
+  "title": "Build Your NYC Itinerary",
+  "desc": "<p>Exclusive&nbsp;tickets to NYC's must-see attractions</p>",
+  "button_text": "Learn More",
+  "button_link": "/offers/itinerary/",
+  "isPublished": true,
+  "expire_date": null,
+  "sort_order": 0,
+  "item_image": {
+    "url": "https://cdn.traveltripper.io/site-assets/414_450_3811/media/2017-06-05-113315/Aladdin--10701-.jpg"
+  }
+}

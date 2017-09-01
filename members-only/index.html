@@ -1,0 +1,59 @@
+---
+layout: default
+title: Members Only | NYC Hotel Deals | The Evelyn
+excerpt: Members of The Evelyn recieve exclusive NYC hotel deals like gift cards, free amenities, and low NYC hotel rates. Become a member at our NoMad hotel.
+pageclass: cug blur
+parent: members
+---
+
+ <div id="photos" style="min-height:578px;">
+         <div class="slideshow">
+            <figure class="photo" style="background-image:url('/images/cms/cache/1920x1080/8c/493-8c344d128e2d0d9164491519bbcbdf43.jpg');"> <img src="/images/cms/cache/1920x1080/8c/493-8c344d128e2d0d9164491519bbcbdf43.jpg" alt=""> </figure>
+         </div>
+         <div class="scroll-to-explore">Scroll to Explore</div>
+      </div>
+      {% regionblock  members-only_content %}
+      <div id="content-area" class="container">
+         <section id="content">
+            <h1>Members Only</h1>
+            <h2>Exclusive Deals at The Evelyn</h2>
+            <p>Welcome to the Members Only section, offering access to some of the best hotel deals in New York. We're proud to treat our loyal guests well at The Evelyn, providing gift cards, free amenities, and low rates.&nbsp;</p>
+            <p>Our NoMad hotel welcomes guests back time and time again, and we help them explore the neighborhood in new ways with each new stay. Experience New York's cutting-edge culinary masterpieces. Shop the latest fashions at the big brands' boutique stores. Relax with comforts only The Evelyn can create. Now that you're a member, your NYC adventures will never be the same.</p>
+            <p>Reserve online or by phone to take advantage of the exclusive offers below.</p>
+            <h3>NYC Hotel Deals Just For Members</h3>
+             <section id="cug-specials">
+              {% assign members_only_offers = site.data._models.members-only-offers %}         
+        
+            {% for offer in members_only_offers %}     
+                  {% if offer.hide_offer == true %}
+                        {% continue %}
+                  {% else %}        
+                        <article class="pos_c">
+                        <img class="fs_image" title="{{ offer.alt_text }}" alt="{{ offer.alt_text }}" src="{{ offer.offer_image.url }}"> 
+                        <div class="text-wrapper">
+                              <div>
+                              <h3 class="fs_tile">{{ offer.title }}</h3>
+                              <p class="fs_descr">{{ offer.short_desc }}</p>
+                              <a onclick="var s=s_gi(s_account);s.linkTrackVars='eVar1';s.eVar1='{{ offer.alt_text }}';(s.tl(this,'o','Closed User Group Special'));" class="fs_link fs_link_title button" href="/offers/{{ offer.url_friendly_name }}">Learn More</a> <a class="phone-number button" href="tel:" onclick="var s=s_gi(s_account); s.linkTrackVars='events,products'; s.linkTrackEvents='event6,scOpen'; s.events='event6,scOpen'; s.products=';'; (s.tl(this,'e',' - Phone Call') );">Call Now</a> 
+                              </div>
+                        </div>
+                        </article>
+                  {% endif %}
+            {% endfor %}
+            </section>
+         </section>
+      </div>
+       {% endregionblock %}
+
+       {% regionblock  members-only-popup-offer_content %}
+      <div id="popup-offer">
+         <form action="https://submit.jotform.me/submit/70463189708464/" class="form" method="post" name="form_70463189708464" id="70463189708464" onsubmit="var s=s_gi(s_account); s.linkTrackVars='events,products'; s.linkTrackEvents='event30'; s.events='event30'; s.eVar2='Email Sign Up Lightbox - Members Only Specials'; s.products=';The Gershwin Hotel New York'; (s.tl(this,'o','Email Sign Up') );">
+            <a class="close" href="/"><i></i></a>
+            <div class="forminfo">
+               <p>Enter your email below to receive Members Only specials, <br>only available at The Evelyn.</p>
+               <p> <input placeholder="EMAIL" class="validate[required,length[0,128],custom[email]] text" type="text"  id="input_3" name="q3_email"  /><button type="submit" >SUBMIT</button> <input type="hidden" name="formID" value="70463189708464" /></p>
+            </div>
+         </form>
+         <iframe name="form_iframe" src="http://links.hebsdigital.com/q/Oq-9b9xlJ4Q-FpInqMDPhJBN5mbZKGf25W" width="0" height="0"></iframe>
+      </div>
+      {% endregionblock %}

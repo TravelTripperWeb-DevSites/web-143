@@ -1,0 +1,37 @@
+---
+layout: default
+title: DISCOVER EXCLUSIVE NYC HOTEL DEALS | The Evelyn
+excerpt: Gracious hospitality, a rich sense of history, and exceptional service await at The Evelyn
+pageclass: 
+parent: offers
+metatags: noindex, nofollow
+---
+
+  <div id="photos">
+         <div class="slideshow">
+            <figure class="photo" style="background-image:url('/images/cms/cache/1920x1080/25/28-259921ba8e0f620a77010636a2c56bff.jpg');"> <img src="/images/cms/cache/1920x1080/25/28-259921ba8e0f620a77010636a2c56bff.jpg" alt=""> </figure>
+         </div>
+         <div class="scroll-to-explore">Scroll to Explore</div>
+      </div>
+      {% regionblock  offers-index_content %}
+      <div id="content-area" class="container">
+         <section id="content">
+            <h1>Discover Exclusive NYC Hotel Deals</h1>
+            <h2>Learn About the Hotel's Specials</h2>
+            <h3>NYC Hotel Packages at The Evelyn</h3>
+            <p>Gracious hospitality, a rich sense of history, and exceptional service await at The Evelyn, a favorite among affordable NYC hotels located in the heart of New York City's Flatiron District. Take advantage of exclusive NYC hotel deals and transport yourself to this classic New York City neighborhood. With Madison Square Park, the Empire State Building, and Midtown just minutes away, The Evelyn is perfectly situated for business and leisure travelers alike.</p>
+            <p></p>
+            <hr>
+            <h3>Special Offers</h3>
+            {% for offer in site.data._models.standalone-pages %} 
+            {% assign mod = forloop.index | modulo: 2 %}
+               <article class="special {% if mod != 0 %}odd{% endif %}">
+                  <h3><a href="{{ offer.url_friendly_name }}">{{ offer.title }}</a></h3>
+                  <p class="thumbnail"><a href="{{ offer.url_friendly_name }}"><img src="{{ offer.offer_image.url }}" alt="{{ offer.title }}" title="{{ offer.title }}"></a></p>
+                  <p>{{ offer.short_desc }}</p>
+                  <nav><a href="/{{ offer.url_friendly_name }}" class="button">Read More</a> <a  href="{{ offer.book_pkg_url }}" class="button" target="_blank" rel="nofollow">{{ offer.book_pkg_online }}</a>  </nav>
+               </article>
+            {% endfor %}
+         </section>
+      </div>
+      {% endregionblock %}

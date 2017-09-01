@@ -1,0 +1,44 @@
+{
+  "title": "PARK AND PLAY",
+  "url_friendly_name": "park-and-play",
+  "short_desc": "<p style=\"box-sizing: border-box; margin: 0px 0px 20px; padding: 0px; border: 0px; outline: none; font-variant-numeric: inherit; font-stretch: inherit; font-size: 14px; line-height: 24px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; vertical-align: baseline; overflow: visible; color: #111111;\">Reserve the Park and Play package and receive complimentary parking and MORE!</p>\n<p>&nbsp;</p>",
+  "long_desc": "<p style=\"box-sizing: border-box; margin: 0px 0px 20px; padding: 0px; border: 0px; outline: none; font-variant-numeric: inherit; font-stretch: inherit; font-size: 14px; line-height: 24px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; vertical-align: baseline; overflow: visible; color: #111111;\">Don't we all love a road trip? &nbsp;Trying to find parking in the Big Apple... not so much. &nbsp;Reserve our exclusive Park and Play, pull up to the front of the hotel, and we'll do the rest. NYC hotel parking has never been easier!</p>\n<p style=\"box-sizing: border-box; margin: 0px 0px 20px; padding: 0px; border: 0px; outline: none; font-variant-numeric: inherit; font-stretch: inherit; font-size: 14px; line-height: 24px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; vertical-align: baseline; overflow: visible; color: #111111;\">Package includes:</p>\n<ul style=\"box-sizing: border-box; margin: 0px 0px 15px 20px; padding: 0px; border: 0px; outline: none; font-variant-numeric: inherit; font-stretch: inherit; font-size: 14px; line-height: inherit; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; vertical-align: baseline; list-style: square inside; color: #111111;\">\n<li style=\"box-sizing: border-box; margin: 0px; padding: 0px 0px 0px 12px; border: 0px; outline: none; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; vertical-align: baseline; position: relative; list-style: none;\">Overnight parking for the duration of your stay, no in and out privileges (large SUV's may be subject to an additional fee)</li>\n<li style=\"box-sizing: border-box; margin: 0px; padding: 0px 0px 0px 12px; border: 0px; outline: none; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; vertical-align: baseline; position: relative; list-style: none;\">$10 gift certificate to our local coffeehouse haunt,&nbsp;Birch Coffee&nbsp;for up to 2 guests</li>\n<li style=\"box-sizing: border-box; margin: 0px; padding: 0px 0px 0px 12px; border: 0px; outline: none; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; vertical-align: baseline; position: relative; list-style: none;\">Complimentary daily Wi-Fi in your room and throughout the hotel</li>\n<li style=\"box-sizing: border-box; margin: 0px; padding: 0px 0px 0px 12px; border: 0px; outline: none; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; vertical-align: baseline; position: relative; list-style: none;\">Early AM Pastries and Coffee in our lobby to enjoy</li>\n<li style=\"box-sizing: border-box; margin: 0px; padding: 0px 0px 0px 12px; border: 0px; outline: none; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; vertical-align: baseline; position: relative; list-style: none;\">Does not apply to group room blocks of 10 or more guest rooms</li>\n</ul>",
+  "offer_banner_image": {
+    "url": "/images/cms/cache/1920x1080/d9/9-d93326a6db76b0b6f5a9e415b293fac7.jpg"
+  },
+  "offer_image": {
+    "url": "https://cdn.traveltripper.io/site-assets/414_450_1406/media/2017-01-23-084600/parkandplay.jpg",
+    "alt": "PARK AND PLAY"
+  },
+  "readmore_btn_text": "Read More",
+  "readmore_btn_link": "park-and-play",
+  "book_pkg_online": "Book Package Online",
+  "sort_order": 5,
+  "isPublished": true,
+  "expire_date": null,
+  "offer_image_icon": {
+    "url": "https://cdn.traveltripper.io/site-assets/414_450_1406/media/2017-01-23-084600/parkandplay.jpg"
+  },
+  "offer_fullimage": {
+    "url": "https://cdn.traveltripper.io/site-assets/414_450_1406/media/2017-01-23-090316/parkandplayful.jpg"
+  },
+  "book_pkg_url": "https://gc.synxis.com/rez.aspx?Hotel=20986&Chain=16087&promo=PARK",
+  "offer_banner_image1": {
+    "url": "https://cdn.traveltripper.io/site-assets/414_450_5626/media/2017-07-27-172836/parking.jpg",
+    "path": "https://cdn.traveltripper.io/site-assets/414_450_5626/media/2017-07-27-172836/parking.jpg",
+    "file_type": "image/jpeg",
+    "name": "parking",
+    "tags": "",
+    "url_large": "//cdn.traveltripper.io/site-assets/414_450_5626/media/2017-07-27-172836/large_parking.jpg",
+    "url_thumb": "//cdn.traveltripper.io/site-assets/414_450_5626/media/2017-07-27-172836/thumb_parking.jpg",
+    "url_medium": "//cdn.traveltripper.io/site-assets/414_450_5626/media/2017-07-27-172836/medium_parking.jpg",
+    "url_small": "//cdn.traveltripper.io/site-assets/414_450_5626/media/2017-07-27-172836/small_parking.jpg",
+    "url_xsmall": "//cdn.traveltripper.io/site-assets/414_450_5626/media/2017-07-27-172836/xsmall_parking.jpg",
+    "width": 1920,
+    "height": 918,
+    "file_size": 861824,
+    "alt": "PARK AND PLAY",
+    "caption": "",
+    "description": ""
+  }
+}

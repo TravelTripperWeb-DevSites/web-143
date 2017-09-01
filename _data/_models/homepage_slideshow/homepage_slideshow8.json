@@ -1,0 +1,25 @@
+{
+  "returnUser": "All",
+  "unpublish": false,
+  "name": "No Facility Fees. Morning Pastries, Coffee & Wi-Fi included at no charge.",
+  "image": {
+    "url": "https://cdn.traveltripper.io/site-assets/414_450_6290/media/2017-08-17-164026/Edited--Amenities--Lifestyle.jpg",
+    "path": "https://cdn.traveltripper.io/site-assets/414_450_6290/media/2017-08-17-164026/Edited--Amenities--Lifestyle.jpg",
+    "file_type": "image/jpeg",
+    "name": "Perks",
+    "tags": "homepage slider, no facility fees",
+    "url_large": "//cdn.traveltripper.io/site-assets/414_450_6290/media/2017-08-17-164026/large_Edited-_Amenities-_Lifestyle.jpg",
+    "url_thumb": "//cdn.traveltripper.io/site-assets/414_450_6290/media/2017-08-17-164026/thumb_Edited-_Amenities-_Lifestyle.jpg",
+    "url_medium": "//cdn.traveltripper.io/site-assets/414_450_6290/media/2017-08-17-164026/medium_Edited-_Amenities-_Lifestyle.jpg",
+    "url_small": "//cdn.traveltripper.io/site-assets/414_450_6290/media/2017-08-17-164026/small_Edited-_Amenities-_Lifestyle.jpg",
+    "url_xsmall": "//cdn.traveltripper.io/site-assets/414_450_6290/media/2017-08-17-164026/xsmall_Edited-_Amenities-_Lifestyle.jpg",
+    "width": 1920,
+    "height": 1080,
+    "file_size": 567071,
+    "alt": "Perks",
+    "caption": "",
+    "description": ""
+  },
+  "linktype": "Image",
+  "sort_order": 5
+}

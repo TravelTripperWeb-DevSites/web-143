@@ -1,0 +1,53 @@
+---
+layout: default
+title: Announcements | Hotel Near Madison Square Park | Evelyn
+excerpt: Hear announcements from The Evelyn, a hotel near Madison Square Park. Book one of the best boutique hotels nyc has to offer.
+pageclass:  
+parent: accommodations
+---
+
+<div id="photos">
+         <div class="slideshow">
+            <figure class="photo" style="background-image:url('/images/cms/cache/1920x1080/0b/8-0b762f151f294894a2b05940894c1a13.jpg');"> <img src="/images/cms/cache/1920x1080/0b/8-0b762f151f294894a2b05940894c1a13.jpg" alt=""> </figure>
+            <figure class="photo" style="background-image:url('/images/cms/cache/1920x1080/a1/7-a18b9e4eb2912f3ef7e7942771d8348e.jpg');"> <img src="/images/cms/cache/1920x1080/a1/7-a18b9e4eb2912f3ef7e7942771d8348e.jpg" alt=""> </figure>
+            <figure class="photo" style="background-image:url('/images/cms/cache/1920x1080/d0/11-d036aad5c8f501482aa564fd5330c0d8.jpg');"> <img src="/images/cms/cache/1920x1080/d0/11-d036aad5c8f501482aa564fd5330c0d8.jpg" alt=""> </figure>
+            <figure class="photo" style="background-image:url('/images/cms/cache/1920x1080/d9/9-d93326a6db76b0b6f5a9e415b293fac7.jpg');"> <img src="/images/cms/cache/1920x1080/d9/9-d93326a6db76b0b6f5a9e415b293fac7.jpg" alt=""> </figure>
+         </div>
+         <div class="scroll-to-explore">Scroll to Explore</div>
+      </div>
+      <div id="content-area" class="container">
+         <aside id="sidebar">
+            <nav id="submenu">
+               <h4><a href="/accommodations">Accommodations</a></h4>
+               <ul>
+                  <li class=""> <a href="/ourhotel/amenities">Amenities</a> </li>
+               </ul>
+            </nav>
+         </aside>
+         <section id="content">
+            {% regionblock  accommodations-index_content %}
+               <h1>NoMad Hotel Rooms at The Evelyn</h1>
+               <h2>Inspired by History, Designed Just for You</h2>
+               <p>Enjoy comfortable NoMad hotel rooms in the heart of Manhattan at The Evelyn Hotel. Luxurious Frette linens, bath products formulated by classic apothecary C.O. Bigelow, and a wide range of complimentary perks such as free Wi-Fi make for stays that are as comfortable as they are convenient. Our boutique NYC hotel rooms come in a wide range of classes and sizes to accommodate almost any preference. Explore our hotel near Madison Square Park by visiting the links below, view pictures in the <a href="/gallery">visual gallery</a>, and please feel free to <a href="/contact">contact us</a> if we can assist you in any way as you plan your stay.</p>
+               <p> </p>
+            {% endregionblock %}
+            <div id="rooms-list" class="">
+               <div class="category-selector"> <button href="javascript:void(0)" data-category="0" class="categories-item button active">All</button> <button href="javascript:void(0)" data-category="1" class="categories-item button">Rooms</button> <button href="javascript:void(0)" data-category="3" class="categories-item button">Suites</button> </div>
+               {% for room in site.data._models.rooms_suites %}
+                  <article class="rooms-entry" data-category="1">
+                     <div class="thumbnail">
+                        <img src="{{ room.image.url }}" alt="Superior Queen">
+                        <h1> {{ room.caption }}</h1>
+                     </div>
+                     <div class="description">
+                        <p> {{ room.description }}</p>
+                        <a href="{{ room.link }}" class="rm">Read More</a> 
+                     </div>
+                  </article>
+               {% endfor %}
+            </div>
+            <p></p>
+            <p></p>
+            <p></p>
+         </section>
+      </div>

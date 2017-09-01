@@ -1,0 +1,43 @@
+{
+  "name": {},
+  "image": {
+    "type": "image",
+    "required": true
+  },
+  "linktype": {
+    "label": "Link Type",
+    "type": "select",
+    "options": [
+      "Book Now",
+      "Join Today",
+      "Read More",
+      "Image"
+    ],
+    "required": true
+  },
+  "booknow": {
+    "hint": "Enter url",
+    "label": "URL"
+  },
+  "sort_order": {
+    "type": "integer",
+    "required": true
+  },
+  "returnUser": {
+    "label": "User Type",
+    "type": "select",
+    "options": [
+      "All",
+      "New",
+      "Return",
+      "Non-Members",
+      "Members"
+    ],
+    "required": true
+  },
+  "unpublish": {
+    "label": "Unpublish?",
+    "type": "boolean",
+    "instructions": "Check to unpublish."
+  }
+}

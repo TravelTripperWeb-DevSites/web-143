@@ -1,0 +1,13 @@
+{
+	"category": "gallery_category3",
+	"img_id": 7,
+	"img_caption": "Deluxe Queen",
+	"thumb_image": {
+		"url": "https://cdn.traveltripper.io/site-assets/414_450_1406/media/2017-01-27-015505/Thumb_37_7-28fce8297533ef72a17d9ccf5cc341b1.jpg"
+	},
+	"full_image": {
+		"url": "https://cdn.traveltripper.io/site-assets/414_450_1406/media/2017-01-27-020555/Full_37_7-4583f32a1ed4643ad982ca18a45ad6a8.jpg"
+	},
+	"sort_order": 11,
+	"name": "Deluxe Queen"
+}

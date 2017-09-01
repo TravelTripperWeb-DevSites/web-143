@@ -1,0 +1,49 @@
+{
+   "title":
+    {
+      "required": true,  
+      "label": "Title"
+    }, 
+    "thumb_image":
+    {
+      "required": true,  
+      "type": "image",
+      "label": "Upload Thumb"   
+    },
+    "description_text":
+    {
+     
+      "label": "Description"
+    }, 
+    "description_url":
+    {
+     
+      "label": "Description"
+    }, 
+    "url-text":
+    {
+       "label": "url text"
+
+    },
+
+    "url":
+    {
+      "required": true 
+    },
+      "pdf_size":
+    {
+      "label": "PDF Size"
+    },
+    "date":
+    {
+     "type":"date"
+    },
+    "datemeta":{
+    "type":"date",
+    "required":true},
+    "sort_order": 
+    { 
+      "type": "integer",
+      "required": true 
+    }   
+  }  
